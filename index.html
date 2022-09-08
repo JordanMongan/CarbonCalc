@@ -1,0 +1,4412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Carbon Calculator</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<header>
+		<nav class="cstm-nav">
+			<div class="cstm-logo"> <img src="img/logo.png" style="width:207px;height:48px;"> </div>
+			<div class="top-btns"> <a href="#" class="cstm-active cstm-footprint">Your footprint</a> <a href="#"
+					id="recommendations" class="cstm-recommendatios">Our Recommendations</a> </div>
+		</nav>
+	</header>
+	<div class="container" id="main" style="position: relative;">
+		<h1 class="top-heading">Your Carbon Footprint is <span id="score">0.00 </span> kg/CO2e </h1>
+		<div class="row" id="footprints">
+			<div class="col-lg-11 offset-lg-1">
+				<div class="row">
+					<h1>Travel</h1>
+					<div class=" col-lg-12">
+						<div class="row">
+							<div class="col-lg-4"> <button class="cstm-btn" id="busBtn">Bus</button> </div>
+							<div class="col-lg-4"> <button class="cstm-btn" id="carBtn">Car</button> </div>
+							<div class="col-lg-4"> <button class="cstm-btn" id="flightBtn">Flight</button> </div>
+							<div class="col-lg-4"> <button class="cstm-btn" id="trainBtn">Train</button> </div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<h1>Workspace</h1>
+					<div class=" col-lg-12">
+						<div class="row">
+							<div class="col-lg-4"> <button class="cstm-btn" id="electricityBtn">Electricity</button>
+							</div>
+							<div class="col-lg-4"> <button class="cstm-btn" id="gasBtn">Gas</button> </div>
+							<div class="col-lg-4"> <button class="cstm-btn" id="waterBtn">Water</button> </div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<h1>Purchases</h1>
+					<div class=" col-lg-12">
+						<div class="row">
+							<div class="col-lg-4"> <button class="cstm-btn" id="appliancesBtn">Appliances</button>
+							</div>
+							<div class="col-lg-4"> <button class="cstm-btn" id="hotelBtn">Hotel Stays</button> </div>
+							<!-- <div class="col-lg-4"> <button class="cstm-btn" id="materialBtn">Materials</button> </div> -->
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<h1>Working procedures</h1>
+					<div class=" col-lg-12">
+						<div class="row">
+							<!-- <div class="col-lg-4"> <button class="cstm-btn" id="hybridWorkBtn">Hybrid Working</button> -->
+							<!-- </div> -->
+							<div class="col-lg-4"> <button class="cstm-btn" id="meetingsBtn">Meetings</button> </div>
+							<div class="col-lg-4"> <button class="cstm-btn" id="comServicesBtn">Communication
+									Services</button> </div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<h1>Advertising and Marketing</h1>
+					<div class=" col-lg-12">
+						<div class="row">
+							<div class="col-lg-4"> <button class="cstm-btn" id="devicesBtn">Devices</button> </div>
+							<!-- <div class="col-lg-4"> <button class="cstm-btn" id="adBtn">Ad Campaigns</button> </div> -->
+							<div class="col-lg-4"> <button class="cstm-btn" id="phyComBtn">Print & Paper</button> </div>
+							<div class="col-lg-4"> <button class="cstm-btn" id="websiteBtn">Website</button> </div>
+						</div>
+						<div class="row">
+
+							<div class="col-lg-4"> <button class="cstm-btn" id="smmBtn">Social Media Management</button>
+							</div>
+							<div class="col-lg-4"> <button class="cstm-btn" id="eventsBtn">Events</button> </div>
+							<div class="col-lg-4"> <button class="cstm-btn" id="dcBtn">Digital Communication</button>
+							</div>
+						</div>
+						<div class="row">
+
+							<div class="col-lg-4"> <button class="cstm-btn" id="daBtn">Digital Advertising</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" id="recommendations2" style="display: none;">
+			<div class="col-lg-11 offset-lg-1">
+				<!-- 		<h1>Transport</h1> -->
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="busCard">
+							<h4>Bus Footprint</h4> <span><i class="fas fa-bus-alt fa-5x"></i></span>
+							<h1 id='bus-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="carCard">
+							<h4>Car Footprint</h4> <span><i class="fas fa-car fa-5x"></i></span>
+							<h1 id='car-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="flightCard">
+							<h4>Flight Footprint</h4> <span><i class="fas fa-plane fa-5x"></i></span>
+							<h1 id='flight-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="trainCard">
+							<h4>Train Footprint</h4> <span><i class="fas fa-subway fa-5x"></i></span>
+							<h1 id='train-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="electricityCard">
+							<h4>Electricity Footprint</h4> <span><i class="fas fa-bolt fa-5x"></i></span>
+							<h1 id='electricity-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="gasCard">
+							<h4>Gas Footprint</h4> <span><i class="fas fa-gas-pump fa-5x"></i></span>
+							<h1 id='gas-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="waterCard">
+							<h4>Water Footprint</h4> <span><i class="fas fa-hand-holding-water fa-5x"></i></span>
+							<h1 id='water-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card " id="appliancesCard">
+							<h4>Appliances Footprint</h4> <span><i class="fas fa-desktop fa-5x"></i></span>
+							<h1 id='appliances-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="hotelCard">
+							<h4>Hotel Stay Footprint</h4> <span><i class="fas fa-hotel fa-5x"></i></span>
+							<h1 id='hotel-card-score'>0</h1>
+						</div>
+					</div>
+					<!-- <div class="col-lg-4">
+						<div class="cstm-card " id="materialsCard">
+							<h4>Materials Footprint</h4> <span><i class="fas fa-atom fa-5x"></i></span>
+							<h1 id='materials-card-score'>0</h1>
+						</div>
+					</div> -->
+					<!-- <div class="col-lg-4">
+						<div class="cstm-card " id="hybridWorkCard">
+							<h4>Hybrid Work Footprint</h4> <span><i class="fas fa-laptop-house fa-5x"></i></span>
+							<h1 id='hybridWork-card-score'>0</h1>
+						</div>
+					</div> -->
+					<div class="col-lg-4">
+						<div class="cstm-card " id="meetingsCard">
+							<h4>Meetings Footprint</h4> <span><i class="fas fa-handshake fa-5x"></i></span>
+							<h1 id='meetings-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card " id="comServicesCard">
+							<h4>Emails</h4> <span><i class="fas fa-mail-bulk fa-5x"></i></span>
+							<h1 id='comServices-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="devicesCard">
+							<h4>Devices Footprint</h4> <span><i class="fas fa-tablet fa-5x"></i></span>
+							<h1 id='devices-card-score'>0</h1>
+						</div>
+					</div>
+					<!-- <div class="col-lg-4">
+						<div class="cstm-card green" id="adCard">
+							<h4>Ad Campaigns Footprint</h4> <span><i class="fas fa-poll-h fa-5x"></i></span>
+							<h1 id='ad-card-score'>0</h1>
+						</div>
+					</div> -->
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="phyComCard">
+							<h4>Print & Paper</h4> <span><i class="fas fa-sticky-note fa-5x"></i></span>
+							<h1 id='phyCom-card-score'>0</h1>
+						</div>
+					</div>
+					<!-- new boxes starts here -->
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="websiteCard">
+							<h4>Website </h4> <span><i class="fas fa-wifi fa-5x"></i></span>
+							<h1 id='website-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="smmCard">
+							<h4>Social Media Management </h4> <span><i class="fas fa-hashtag fa-5x"></i></span>
+							<h1 id='smm-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="eventsCard">
+							<h4>Events </h4> <span><i class="fas fa-calendar fa-5x"></i></span>
+							<h1 id='events-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="dcCard">
+							<h4>Digital Communications </h4> <span><i class="fas fa-envelope fa-5x"></i></span>
+							<h1 id='dc-card-score'>0</h1>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="cstm-card green" id="daCard">
+							<h4>Digital Advertising </h4> <span><i class="fas fa-seedling fa-5x"></i></span>
+							<h1 id='da-card-score'>0</h1>
+						</div>
+					</div>
+					<!-- new boxes ends here -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="busModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Bus</h5> <button type="button" class="btn-close"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">What's the distance your team has travelled by bus in the last year?</h1>
+						<p class="smaller-description">Click <a href="https://www.google.co.uk/maps"
+								target="_blank">here</a> for reference to calculating your team's travel by bus. Please
+							enter the distance you've travelled using a bus anually, you can then select either km or
+							miles. This section is based off an average petrol bus consumption travelling in a city
+							centre. </p> <input type="text" id="busInput" placeholder="Please Enter a value"> <br>
+						<!--
+					<div class="number-input md-number-input">
+  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus">-</button>
+  <input class="quantity" min="0" name="quantity" value="1" type="number">
+  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus">+</button>
+</div> --> <button data-val="km" data-formula="0.01" class="selected">KM</button> <button data-val="mile"
+							data-formula="0.012">Mile</button>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- Appliances modal starts here  -->
+	<div class="modal fade" id="appliancesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Appliances</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many of these appliances has your team purchased in the last year?
+						</h1>
+						<p class="smaller-description">Enter the number of each appliance you have purcahsed in the past
+							year. Each device has a differnet carbon footprint based on it's material sourcing,
+							manufacturing processes and product transportation. </p>
+						<!--
+
+					<div class="custom-select" >
+  <select>
+    <option value="0">Select an appliance</option>
+    <option value="1">Laptop</option>
+    <option value="2">Smartphone</option>
+    <option value="3">Moniter Screens</option>
+
+  </select>
+</div>
+-->
+						<div class="number-input md-number-input"> <input type='text' value="Laptop" disabled> <button
+								onclick="this.parentNode.querySelector('input[name=laptops]').stepDown()"
+								class="minus">-</button> <input class="quantity" min="0" name="laptops" value="0"
+								type="number"> <button
+								onclick="this.parentNode.querySelector('input[name=laptops]').stepUp()"
+								class="plus">+</button> </div>
+						<div class="number-input md-number-input"> <input type='text' value="Smartphone" disabled>
+							<button onclick="this.parentNode.querySelector('input[name=smartphones]').stepDown()"
+								class="minus">-</button> <input class="quantity" min="0" name="smartphones" value="0"
+								type="number"> <button
+								onclick="this.parentNode.querySelector('input[name=smartphones]').stepUp()"
+								class="plus">+</button>
+						</div>
+						<div class="number-input md-number-input"> <input type='text' value="Monitor Screens" disabled>
+							<button onclick="this.parentNode.querySelector('input[name=monitors]').stepDown()"
+								class="minus">-</button> <input class="quantity" min="0" name="monitors" value="0"
+								type="number"> <button
+								onclick="this.parentNode.querySelector('input[name=monitors]').stepUp()"
+								class="plus">+</button>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- Flight Modal starts here -->
+	<div class="modal fade" id="flightModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Flight </h5> <button type="button" class="btn-close"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">What's the distance your team has travelled by flgiht in the last year?
+						</h1>
+						<p class="smaller-description">Click <a href="https://www.distance.to/" target="_blank">here</a>
+							for a flight distance calculator. Please enter the distance you've travelled using flights
+							anually, you can then select either km or miles. </p>
+						<!-- <select name="" id="">
+
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+					</select> --> <input type="text" id="flightInput" placeholder="Please Enter a value"> <br> <button data-val="km"
+							data-formula="0.085" class="selected">KM</button> <button data-val="mile"
+							data-formula="0.135">Mile</button>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- train modal starts here -->
+	<div class="modal fade" id="trainModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Train Information</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">What's the distance your team has travelled by train in the last year?</h1>
+						<p class="smaller-description">Click <a href="https://my.railmiles.me/mileage-engine/"
+								target="_blank">here</a> for a train distance calculator. Please enter the distance
+							you've travelled using trains anually, you can then select either km or miles.</p>
+						<!-- <select name="" id="">
+
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+					</select> --> <input type="text" id="trainInput" placeholder="Please Enter a value"> <br> <button data-val="km"
+							data-formula="0.041" class="selected">KM</button> <button data-val="mile"
+							data-formula="0.066">Mile</button>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- advertising modals starting from here -->
+	<div class="modal fade" id="devicesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<!-- <div class="modal-dialog  modal-dialog-centered modal-lg ">
+             modal-dialog -modal-dialog-centered modal-lgcentered
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Devices Information</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="cstm-modal" id="m-cstm-modal">
+                        <h1 class="question">How many people in your team use a laptop/computer?</h1>
+                        <p class="smaller-description">The average carbon footprint of an employee using a laptop/computer is 88.4kgs. <a href=" https://mossy.earth/guides/lifestyle/environmentally-friendly-laptop" target="_blank">Source</a> </p> <input type="text" id="devicesInput" placeholder="Please Enter a value"> <br> <button data-val="kWH" data-formula="0.233" class="selected">KWH</button>
+                        		<button data-val="mile" data-formula="0.066" >Mile</button>
+                    </div>
+                </div>
+                <div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button> </div>
+            </div>
+        </div> -->
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Devices Information</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many people in your team use a laptop/computer? </h1>
+						<p class="smaller-description">The average carbon footprint of an employee using a
+							laptop/computer is 88.4kgs. <a
+								href=" https://mossy.earth/guides/lifestyle/environmentally-friendly-laptop"
+								target="_blank">Source</a> </p>
+						<!--
+
+					<div class="custom-select" >
+  <select>
+    <option value="0">Select an appliance</option>
+    <option value="1">Laptop</option>
+    <option value="2">Smartphone</option>
+    <option value="3">Moniter Screens</option>
+
+  </select>
+</div>
+-->
+						<div class="number-input md-number-input"> <input type='text' value="Laptop" disabled> <button
+								onclick="this.parentNode.querySelector('input[name=laptopsD]').stepDown()"
+								class="minus">-</button> <input class="quantity" min="0" name="laptopsD" value="0"
+								type="number"> <button
+								onclick="this.parentNode.querySelector('input[name=laptopsD]').stepUp()"
+								class="plus">+</button> </div>
+						<div class="number-input md-number-input"> <input type='text' value="Smartphone" disabled>
+							<button onclick="this.parentNode.querySelector('input[name=smartphonesD]').stepDown()"
+								class="minus">-</button> <input class="quantity" min="0" name="smartphonesD" value="0"
+								type="number"> <button
+								onclick="this.parentNode.querySelector('input[name=smartphonesD]').stepUp()"
+								class="plus">+</button>
+						</div>
+						<div class="number-input md-number-input"> <input type='text' value="Monitor Screens" disabled>
+							<button onclick="this.parentNode.querySelector('input[name=monitorsD]').stepDown()"
+								class="minus">-</button> <input class="quantity" min="0" name="monitorsD" value="0"
+								type="number"> <button
+								onclick="this.parentNode.querySelector('input[name=monitorsD]').stepUp()"
+								class="plus">+</button>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="adModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ad Campaigns</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many online ad campaigns has your team made in the last year?</h1>
+						<p class="smaller-description"> The average online ad campaign generates 5.4 tonnes of CO2
+							emissions – equivalent to around 13,000 miles of car travel. As large as this figure might
+							seem, it nevertheless does not include the data-intensive auctioning process that takes
+							place trillions of times per day without an ad actually being displayed. <a
+								href="  https://the-media-leader.com/carbon-footprint-of-digital-ads-laid-bare-by-good-loop-tool/"
+								target="_blank">Source</a></p> <input type="text" id="adInput"
+							placeholder="Please Enter a value"> <br>
+						<!-- <button data-val="kWH" data-formula="0.233" class="selected">KWH</button> -->
+						<!-- 		<button data-val="mile" data-formula="0.066" >Mile</button> -->
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="phyComModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Physical Communications</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many kgs of paper has your team printed in the last year?</h1>
+						<p class="smaller-description">Click <a
+								href="https://www.swallowtailprint.co.uk/news/articles/post/129-how-heavy-is-my-brochure"
+								target="_blank">here</a> for some help understanding how heavy brochures are. Printer
+							ink is toxic to human beings, but in most cases, you would need to directly ingest it to see
+							the effects. However, there are chemicals in printer inks that can be harmful to the
+							environment, as well as petroleum oil and non-biodegradable plastic casing found in some ink
+							and toner cartridges. The wasting of paper, of course, leads to demand for even more paper.
+							The demand for more paper leads to deforestation. The dangers of deforestation and its
+							effects on our planet are well documented. <a
+								href="  https://www.capitalmds.com/the-impact-of-printing-on-the-environment/"
+								target="_blank">Source</a></p> <input type="text" id="phyComInput"
+							placeholder="Please Enter a value"> <br>
+						<!-- <button data-val="kWH" data-formula="0.233" class="selected">KWH</button> -->
+						<!-- 		<button data-val="mile" data-formula="0.066" >Mile</button> -->
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- Working procedures modals starts from here -->
+	<div class="modal fade" id="hybridWorkModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Hybrid Working</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">Which working method does your team use the most?</h1>
+						<p class="smaller-description">Each working method has a different carbon footprint, this is
+							because when you're in a company workspace utilties are distributed across each employee
+							whilst an employee at home would use their own utilities. On the other hand, travelling to
+							and from work can be a big cause of carbon emissions. </p>
+						<div class="custom-selecttt"> <select name="" class="form-select" id="hybridSelect">
+								<option value="0">Choose an Option</option>
+								<option value="2500">Work From Home</option>
+								<option value="2700">In Person</option>
+								<option value="2900">Hybrid</option>
+							</select> </div>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="meetingsModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Meetings</h5> <button type="button" class="btn-close"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question"> How many meetings does your team attend per week?</h1>
+						<p class="smaller-description">Online and in-person meetings have different carbon footprints,
+							they differ from the transport each attendee uses to get to the meeting to the digital
+							devices using energy to operate. </p> <input type="text" id="meetingsInput"
+							placeholder="Online"> <br> <input type="text" id="meetingsInput2" placeholder="In-person">
+						<!-- 	<button data-val="online" data-formula="0.233" class="selected">Online</button>
+					<button data-val="IP" data-formula="0.066" >In Person</button> -->
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="comServicesModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Emails</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many emails does your team send per day? </h1>
+						<p class="smaller-description">Did you know, emails sitting in your inbox can increase your
+							carbon footprint?! They are using digital space which uses more energy to keep! </p> <input
+							type="text" id="comServicesInput" placeholder="Please Enter a value"> <br>
+						<!-- <button data-val="kWH" data-formula="0.233" class="selected">KWH</button> -->
+						<!-- 		<button data-val="mile" data-formula="0.066" >Mile</button> -->
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="electricityModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Electricity </h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How much electricity does your workspace use? </h1>
+						<p class="smaller-description">Please enter the value stated on your electricity bill or a
+							calculated value from a meter.</p> <input type="text" id="electricityInput"
+							placeholder="Please Enter a value"> <br> <button data-val="kWH" data-formula="0.233"
+							class="selected">KWH</button>
+						<!-- 		<button data-val="mile" data-formula="0.066" >Mile</button> -->
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="gasModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Gas</h5> <button type="button" class="btn-close"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How much gas does your workspace use anually? </h1>
+						<p class="smaller-description">Please enter the value stated on your gas bill or a calculated
+							value from a meter.</p> <input type="text" id="gasInput" placeholder="Please Enter a value">
+						<br> <button data-val="kwh" data-formula="0.184" class="selected">KWH</button>
+						<!-- 		<button data-val="mile" data-formula="0.066" >Mile</button> -->
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="waterModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Water</h5> <button type="button" class="btn-close"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How much water does your workspace use anually?</h1>
+						<p class="smaller-description">Please enter the value stated on your water bill or a calculated
+							value from a meter.</p> <input type="text" id="waterInput"
+							placeholder="Please Enter a value"> <br> <button data-val="m3" data-formula=" 0.000000298"
+							class="selected">M3</button> <button data-val="liters"
+							data-formula="0.000298">Liters</button>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="hotelModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Hotels Stay</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many hotels has your team stayed in over the last year?</h1>
+						<p class="smaller-description">Each country has their own average carbon footprint for a stay at
+							a hotel. This calculator uses the average for each country to calculate the total carbon
+							footprint. There are differences between countries because different amenities are provided
+							as custom differently. </p>
+						<div class="country-box" id="country1">
+							<div class="row custom-selectff cstm-margin ">
+								<div class="col-lg-6"> <Select class="form-select cstms">
+										<option value="">Country</option>
+										<option value="56.0">Argentina </option>
+										<option value="42.6">Australia </option>
+										<option value="13.9">Austria</option>
+										<option value="10.9">Belgium</option>
+										<option value="12.3">Brazil</option>
+										<option value="16.1">Canada</option>
+										<option value="30.9">Chile</option>
+										<option value="62.9">China</option>
+										<option value="13.5">Colombia</option>
+										<option value="7.5">Costa Rica</option>
+										<option value="36.2">Czech Republic</option>
+										<option value="56.5">Egypt</option>
+										<option value="47.8">Fiji</option>
+										<option value="	">Finland</option>
+										<option value="6.5">France</option>
+										<option value="17.0">Germany</option>
+										<option value="	43.0">Greece</option>
+										<option value="	65.9">Hong Kong, China</option>
+										<option value="75.5">India</option>
+										<option value="89.1">Indonesia</option>
+										<option value="25.0">Ireland</option>
+										<option value="54.0">Israel</option>
+										<option value="20.2">Italy</option>
+										<option value="60.6">Japan</option>
+										<option value="62.4">Jorda</option>
+										<option value="	">Kazakhstan</option>
+										<option value="61.2">Korea</option>
+										<option value="75.6">Macau, China</option>
+										<option value="83.0">Malaysia</option>
+										<option value="183.3">Maldives</option>
+										<option value="25.9">Mexico</option>
+										<option value="20.9">Netherlands</option>
+										<option value="10.4">New Zealand</option>
+										<option value="	">Oman</option>
+										<option value="22.1">Panama</option>
+										<option value="22.5">Peru</option>
+										<option value="44.2">Philippines</option>
+										<option value="33.2">Poland</option>
+										<option value="26.0">Portugal</option>
+										<option value="126.8	">Qatar</option>
+										<option value="	25.5">Romania</option>
+										<option value="31.8	">Russian Federation</option>
+										<option value="114.5	">Saudi Arabia</option>
+										<option value="37.8	">Singapore</option>
+										<option value="19.1	">Slovak Republic</option>
+										<option value="61.0">South Africa</option>
+										<option value="18.7	">Spain</option>
+										<option value="7.4	">Switzerland</option>
+										<option value="77.3">Taiwan, China</option>
+										<option value="51.0	">Thailand</option>
+										<option value="33.6	">Turkey</option>
+										<option value="114.4	">United Arab Emirates</option>
+										<option value="13.9	">United Kingdom</option>
+										<option value="19.7	">United States</option>
+										<option value="51.8">Vietnam</option>
+									</Select> </div>
+								<div class="col-lg-6"> <input type="text" class="nightBox"
+										placeholder="Enter the Nights stayed there" id="cNights"> </div>
+							</div>
+						</div>
+						<div class="anotherCountry"> </div> <button id="addMoreCountry">+ Add More</button>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="materialModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered  modal-lg  ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Materials</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal">
+						<h1 class="question">Which of these materials has your team purchased in the past year? </h1>
+						<p class="smaller-description">Did you know that each material contains carbon from the sourcing
+							of the material to production of standard material sizes for consumers. Add as many
+							materials that you have purchased as possible. </p>
+						<div class="material-box" id="material1">
+							<div class="row custom-selectff cstm-margin ">
+								<div class="col-lg-6"> <select class="form-select cstm-material" id="materialSelect">
+										<option value="0">Select a Material</option>
+										<optgroup label="Construction" id="">
+											<option value="7.7589016	">Aggregates</option>
+											<option value="79.97367261">Average construction</option>
+											<option value="	27	"> Asbestos</option>
+											<option value="39.21249183"> Asphalt</option>
+											<option value="241.7589016"> Bricks</option>
+											<option value="131.7589016"> Concrete</option>
+											<option value="1861.758902"> Insulation</option>
+											<option value="3975.823373"> Metals</option>
+											<option value="1401"> Mineral oil</option>
+											<option value="120.05"> Plasterboard</option>
+											<option value="3335.5719"> Tyres</option>
+											<option value="312.6117802"> Wood</option>
+										</optgroup>
+										<optgroup label="Organic">
+											<Option>Organic</Option>
+											<option value="113.308907">Compost derived from garden waste</option>
+											<option value="116.125532"> Compost derived from food and garden waste
+											</option>
+										</optgroup>
+										<optgroup label="Electrical Items">
+											<option value="4363.333333	">Electrical items - fridges and freezers
+											</option>
+											<option value="3267	">Electrical items - large</option>
+											<option value="24865.47556	">Electrical items - IT </option>
+											<option value="5647.945634	">Electrical items - small</option>
+											<option value="4633.478261	">Batteries - Alkaline </option>
+											<option value="6308	">Batteries - Li ion </option>
+											<option value="28380	">Batteries - NiMh </option>
+										</optgroup>
+										<optgroup label="metal">
+											<option value="9122.6364	">Metal: aluminium cans and foil (excl. forming)
+											</option>
+											<option value="	5268.5564">Metal: mixed cans </option>
+											<option value="3682.6829">Metal: scrap metal</option>
+											<option value="3100.6364">Metal: steel cans </option>
+										</optgroup>
+										<optgroup label="plastic">
+											<option value="">Plastic</option>
+											<option value="3116.291564	">Plastics: average plastics </option>
+											<option value="	2574.164753">Plastics: average plastic film </option>
+											<option value="	3276.706933">Plastics: average plastic rigid</option>
+											<option value="	3269.838892">Plastics: HDPE (incl. forming) </option>
+											<option value="2600.6364	">Plastics: LDPE and LLDPE (incl.forming) </option>
+											<option value="4032.392498	">Plastics: PET (incl. forming) </option>
+											<option value="3104.726992	">Plastics: PP (incl. forming) </option>
+											<option value="3777.9489	">Plastics: PS (incl. forming) </option>
+											<option value="3413.084161	">Plastics: PVC (incl. forming) </option>
+										</optgroup>
+										<optgroup label="paper">
+											<option val="821.2338892"> Paper and board:board</option>
+											<option val="881.1893614"> Paper and board:mixed</option>
+											<option val="919.39628">Paper and board:paper</option>
+										</optgroup>
+										<optgroup label="Others">
+											<option value="0">Books</option>
+											<option value="1402.766667">Glass</option>
+											<option value="22310">Clothing</option>
+											<option value="3701.403593">Food and drink</option>
+										</optgroup>
+									</select> </div>
+								<div class="col-lg-6"> <input type="text" class="nightBox"
+										placeholder="Enter value in Kilograms" id="materialInput"> </div>
+							</div>
+						</div>
+						<div class="anotherMaterial"> </div> <button id="addMoreMaterial">+ Add More</button>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="carModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg  ">
+			<!--  modal-dialog -centered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Cars</h5> <button type="button" class="btn-close"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">What's the distance your team has traveled by car in the last year?</h1>
+						<p class="smaller-description">Click <a
+								href="https://www.theaa.com/driving/mileage-calculator.jsp" target="_blank">here</a> for
+							a car distance calculator or have a look at your car's MOT for an accurate yearly reading.
+							Please enter the distance you've travelled using flights anually, you can then select either
+							km or miles.</p>
+						<div id="car1" class="car-box">
+							<div class="row custom-selecttt car-box-inner">
+								<div class="col-lg-4"> <select name="cars" id="cars" class="form-select cars"
+										data-dropup-auto="false">
+										<option value="">Choose a Car</option>
+										<optgroup label="Mini Cars">
+											<option value="1">Mini Petrol</option>
+											<option value="2">Mini Diesal</option>
+											<option value="3">Mini Hybrid</option>
+										</optgroup>
+										<optgroup label="Executive Cars">
+											<option value="4">Executive Petrol </option>
+											<option value="5">Executive Diesel </option>
+											<option value="6">Executive Hybrid</option>
+										</optgroup>
+										<optgroup label="Luxury Cars">
+											<option value="7">Luxury Petrol </option>
+											<option value="8">Luxury Diesel </option>
+											<option value="9">Luxury Hybrid</option>
+										</optgroup>
+										<optgroup label="Sports Cars">
+											<option value="10">Sports Petrol </option>
+											<option value="11">Sports Diesel </option>
+											<option value="12">Sports Hybrid</option>
+										</optgroup>
+										<optgroup label="Mp4 Cars">
+											<option value="13">Mp4 Petrol </option>
+											<option value="14">Mp4 Diesel </option>
+											<option value="15">Mp4 Hybrid</option>
+										</optgroup>
+									</select> </div>
+								<div class="col-lg-4"> <input type="text" class="carInput"
+										placeholder="Distance Travelled " style=""> </div>
+								<div class="col-lg-4"> <button class="selected unitBtn">KM</button> <button
+										class="unitBtn">Mile</button> </div>
+							</div>
+						</div>
+						<div id="anotherCar"> </div> <button id="addMoreCar">+ Add Another</button> <!-- 	</div> -->
+						<!-- <select name="" id="">
+
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+						<option value="">car 1</option>
+					</select> --> <br>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- other modals -->
+	<div class="modal fade" id="busCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/bus.png" alt="bus"> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Use public transport</h1>
+								<p class="smaller-description">Using public transport is one of the most effective and accessible ways in which to reduce your overall transportation carbon footprint. Data shows that, on average, individuals who use public transport produce 2800kg less carbon than those that rely on a car. Oh, and it’ll save you some money, too!</p>
+								<h1 class="modal-title-cstm">Pedal power!</h1>
+								<p class="smaller-description">Riding your bike is an affordable, efficient way to travel, with cyclists being able to use designated lanes to zoom past traffic jams. It's also a fantastic way to do more physical activity and have fun in the process. Encourage your teams by promoting the <a href="https://www.cyclescheme.co.uk/"
+										target="_blank">Cycle To Work Scheme</a></p>
+								<h1 class="modal-title-cstm">Walk short journeys</h1>
+								<p class="smaller-description">Where possible, consider walking shorter journeys. It’s a great way to get more active without having to set foot in (or pay for) a gym and <a href="https://www.steponecharity.co.uk/benefits-walking-mental-health"
+										target="_blank">is proven</a> to work wonders for our mental health, energy levels, and sleep routines!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 		<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="carCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/car.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Switch to public transportation</h1>
+								<p class="smaller-description">Public transportation provides a fantastic way for us to reduce our carbon footprints, being easily accessible, cost-effective, and often quicker than driving. Data shows that, on average, individuals who use public transport produce 2800kg less carbon per year than those that rely on a car. </p>
+								<h1 class="modal-title-cstm">Carpooling</h1>
+								<p class="smaller-description">Travelling in groups instead of driving solo reduces the number of cars on the roads. This reduces the carbon footprints of the individual passengers, helps to minimise congestion during rush hours, and means that we’re spending less on fuel! Who knows, there might even be a bit of karaoke too?</p>
+								<h1 class="modal-title-cstm">Accelerate and break smoothly</h1>
+								<p class="smaller-description">When driving, try to keep accelerating and braking to a minimum. By speeding away only to slam on the brakes, we can burn up to 30% more fuel and shorten the lifespans of our vehicles. Try using features such as cruise control to keep your speed constant.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 		<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="flightCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/flight.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Research alternaitve transport</h1>
+								<p class="smaller-description">Air travel has the worst carbon footprint of all modes of transport. For shorter journeys such as domestic flights between Edinburgh and London, try researching if it's possible to travel by train instead as this can reduce your emissions by <a href="https://ourworldindata.org/travel-carbon-footprint"
+										target="_blank">close to 85%</a> </p>
+								<h1 class="modal-title-cstm">Pack light </h1>
+								<p class="smaller-description">The more you try to squeeze into your suitcase, the heavier it will be. Heavy bags means heavy aircrafts which will need more fuel to stay in the air. Consider streamlining your packing to just the essentials or limiting yourself to whatever you can fit in a carry-on case!</p>
+								<h1 class="modal-title-cstm">Opt for economy</h1>
+								<p class="smaller-description">Flying business class might be more comfortable, but these seats don’t maximise a plane’s passenger capacity. As well as being cheaper, <a href="https://ourworldindata.org/travel-carbon-footprint "
+										target="_blank">choosing to sit in economy </a> means airlines can fit more people on a plane and reduce the number of flights they have to schedule to meet demand. </p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 		<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="trainCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/train.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Choo-choo-choose the train</h1>
+								<p class="smaller-description">Choo-choo-choose the train!
+									<a href="https://ourworldindata.org/travel-carbon-footprint"
+										target="_blank">Data shows</a> that travelling by train produces significantly less CO2e than flying or driving, even in the case of electric vehicles with multiple passengers. What’s more, planes produce a greater number of greenhouse gases which can further accelerate the rate of global warming.
+								</p>
+								<h1 class="modal-title-cstm">Offset emissions</h1>
+								<p class="smaller-description">Even though trains produce significantly less CO2e than other modes of transport, the rail industry as a whole does still contribute to overall global emissions. Learn how you can offset these emissions and even become carbon negative through sites like <a href="https://ecologi.com/"
+									target="_blank">Ecologi</a>.</p>
+								<h1 class="modal-title-cstm">Learn more</h1>
+								<p class="smaller-description">Learn more
+Rail travel can and will play a crucial role in decarbonising the motorised transportation industry. Learn more on the European Environment Agency’s website here.
+
+<a href="https://www.eea.europa.eu/highlights/motorised-transport-train-plane-road#:~:text=Rail%20and%20waterborne%20transport%20have,intensive%20choices%20for%20motorised%20transport."
+										target="_blank">here</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 		<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="electricityCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/electricity.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Understand carbon intensity</h1>
+								<p class="smaller-description">Many people don’t realise that it’s actually better to use electricity at specific times, as the carbon intensity - the amount of CO2 emitted through the production of one kilowatt hour of energy - of this electricity fluctuates throughout the day. Learn more <a
+										href="https://www.nationalgrid.com/stories/energy-explained/what-is-carbon-intensity "
+										target="_blank">here</a></p>
+								<h1 class="modal-title-cstm">User renewable energy sources</h1>
+								<p class="smaller-description">Around the world, energy providers are now working to meet growing demands for greener tariffs. By <a
+										href="https://www.uswitch.com/gas-electricity/ "
+										target="_blank"> switching to a provider</a> of solar, wind, or hydroelectric energy, you can reduce the carbon footprint of your energy consumption and even save money too!</p>
+								<h1 class="modal-title-cstm">Buy energy-efficient appliances</h1>
+								<p class="smaller-description">Electrical appliances come with an energy rating from A-G to indicate their efficiency based on their product class. Knowing that ‘A’ is the most efficient, we can make more informed decisions about the environmental (and financial) effects of our purchases. Learn more on the <a href="https://energysavingtrust.org.uk/advice/home-appliances/ "
+								target="_blank"> Energy Saving Trust’s website.</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 		<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="gasCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/gas.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Keep the cold out</h1>
+								<p class="smaller-description">Cold air can seep in from outside and reduce a building’s ambient temperature. Rather than having to compensate for this with heaters, make sure that your business premises are properly insulated by sealing gaps around windows, installing draught-proof wall cavities, and ensuring that doors aren’t left ajar.</p>
+								<h1 class="modal-title-cstm">Install ceiling insulation</h1>
+								<p class="smaller-description">Up to 40% of a building’s heat is lost through roofing that doesn’t have proper insulation. By insulating the ceiling of your office space, you can improve its energy efficiency and make it 5% warmer during the winter. Learn more <a
+										href="https://www.britishgas.co.uk/business/blog/10-ways-to-save-energy-in-the-workplace/"
+										target="_blank">here</a></p>
+								<h1 class="modal-title-cstm">Use a smart meter</h1>
+								<p class="smaller-description">Smart meters are a fantastic way to help your business reduce its energy consumption, save time, and manage costs. As well as giving you insights into your usage habits, smart meters automatically send readings to energy suppliers to make sure your business isn’t overpaying. Read more
+									<a href="https://www.britishgas.co.uk/business/blog/10-ways-to-save-energy-in-the-workplace/"
+										target="_blank">here</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 		<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="waterCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/water.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Identify and fix leaks</h1>
+								<p class="smaller-description">A leaking tap, toilet, or shower head can lose up to 20 gallons of water every day. Use the water consumption data provided by your smart meter to set benchmarks for how much your business is using so you can identify and repair any leaks promptly! Learn more  <a
+										href="https://touchstoneservices.co.uk/five-ways-to-reduce-water-consumption-in-the-workplace/"
+										target="_blank">here</a></p>
+								<h1 class="modal-title-cstm">Use mulch in landscaping</h1>
+								<p class="smaller-description">Keeping gardens or grassy areas green uses a lot of water, especially during the summer months. By covering the ground in a layer of mulch - a mix of decaying leaves and bark - you can prevent water loss through evaporation and keep soil moist for longer. Read more  <a
+										href="https://www.rhs.org.uk/soil-composts-mulches/mulch"
+										target="_blank">here</a></p>
+								<h1 class="modal-title-cstm">Harvest rainwater</h1>
+								<p class="smaller-description">Currently, not a lot of urban buildings are designed to collect and store rainwater, but there are simple modifications that can change this. Survey your office building to find out whether it’s possible to harvest rainwater and make the <a
+										href="http://mains2rains.uk/"
+										target="_blank"> Mains to Rains pledge</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 		<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="appliancesCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/laptop.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Choose green appliances</h1>
+								<p class="smaller-description">This doesn't mean buying an emerald fridge or a lime green kettle, it means choosing electrical appliances based on their energy efficiency. Study the energy ratings of different models to make informed decisions about what will use (and cost) the least!</p>
+								<h1 class="modal-title-cstm">Be a second-hand superstar</h1>
+								<p class="smaller-description">Sure, we all like having the latest versions of things, but brand new appliances have significantly higher carbon footprints than refurbished or second-hand equivalents. Choosing to buy pre-owned phones, laptops, and tablets for your employees  <a
+										href="https://www.jpost.com/special-content/help-save-the-environment-by-buying-refurbished-phones-649143"
+										target="_blank">can reduce your footprint</a> and save you money too!</p>
+								<h1 class="modal-title-cstm">Use renewable energy </h1>
+								<p class="smaller-description">There’s no getting around the fact that businesses need electrical appliances to operate effectively. Minimise the environmental impact of these devices by switching your business onto an energy plan that comes from  renewable sources such as solar, wind, and hydroelectric.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 		<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="hotelCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/hotel.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Carbon concious booking</h1>
+								<p class="smaller-description">By using booking systems such as <a href="https://staze.com/"
+										target="_blank">Staze</a> , we can compare the different hotels in our travel destination according to their carbon footprints. This enables us to make informed decisions about the environmental impact of our business travel and limit it where possible.</p>
+								<h1 class="modal-title-cstm">Downsize your room</h1>
+								<p class="smaller-description">Hotel rooms will have different carbon footprints based on their size, level of luxury, and amenities. An economy room, for example, will produce significantly less CO2e than a deluxe suite, as it will have fewer hard and soft furnishings and require less energy to heat and cool.</p>
+								<h1 class="modal-title-cstm">Skip breakfast</h1>
+								<p class="smaller-description">You don’t have to skip it altogether; it is the most important meal of the day after all! The <a
+										href="https://www.forbes.com/sites/christinatroitino/2017/09/14/the-tragedy-of-the-buffet-commons-reducing-food-waste-at-hotels/?sh=2803603617dc"
+										target="_blank"> issue with hotel breakfasts</a> lies in the buffet offering, as nearly 40% of the food provided ends up being binned. Consider breakfasting elsewhere to reduce the carbon footprint of your stay.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="materialsCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/materials.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Source recycled materials</h1>
+								<p class="smaller-description">Wherever possible, look to source recycled raw materials as these have considerably smaller carbon footprints than those obtained through mining. In construction, for example, seek out recycled steel or aluminium and establish partnerships with suppliers who embrace environmentally friendly practices. Learn more
+									<a href="https://www.sotham.co.uk/6-ways-to-reduce-the-carbon-footprint-of-a-large-building/"
+										target="_blank">here</a>
+								</p>
+								<h1 class="modal-title-cstm">Buy local</h1>
+								<p class="smaller-description">The further that a material is shipped in lorries and planes, the bigger its carbon footprint will be. We can prevent these carbon emissions by sourcing materials locally through platforms such as <a href="https://www.enviromate.co.uk/"
+									target="_blank">Enviromate</a> - an online marketplace that sells leftover building materials that would otherwise go to waste. </p>
+								<h1 class="modal-title-cstm">Streamline material usage</h1>
+								<p class="smaller-description">Reducing our overall material usage needs to be factored into a product’s development as early as possible. By designing things to be ‘lighter’ from the outset, we can reduce the carbon emissions generated through manufacturing processes and transportation.  </p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="hybridWorkCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/homeworking.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Work from home during summer months</h1>
+								<p class="smaller-description">During the summer months, employees tend to use less gas
+									and electricity than in the winter, therefore working from home can reduce your
+									bills along with reducing the amount you commute to the office. Unfortunately,
+									because of the rigidity of conventional working hours, commuters are often stuck in
+									traffic jams accounting for millions of tons of wasted greenhouse gases. Read more
+									<a href="https://webflow.plana.earth/academy/how-to-measure-carbon-footprint-work-from-home"
+										target="_blank">here</a>
+								</p>
+								<h1 class="modal-title-cstm">Work at the office during winter months</h1>
+								<p class="smaller-description">During the winter months, households see their utility
+									bills increase significantly, whereas working in the office means a heating carbon
+									footprint that is split over many employees. Moreover, the efficiency of systems in
+									offices are usually higher than at home. </p>
+								<h1 class="modal-title-cstm">Measure your work electricity and gas usage</h1>
+								<p class="smaller-description">Did you know you could charge your employer with some
+									electricity and gas usage at home? If you work from home, you can claim some of your
+									home utility costs as a business expense, saving yourself a bit of tax. What you can
+									claim, and how, depends on whether you’re a company director or sole trader. Read
+									more <a href="https://myaccountancyhub.co.uk/claiming-home-utility-bills"
+										target="_blank">here</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="meetingsCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/meeting.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Go virtual</h1>
+								<p class="smaller-description"><a
+									href="https://news.cornell.edu/stories/2021/12/shifting-meetings-conventions-online-curbs-climate-change"
+									target="_blank">Recent studies</a>have shown how switching to virtual and hybrid meetings can reduce their carbon footprint by 94% and 67% respectively. This is made possible because less energy is used to heat and illuminate meeting rooms and fewer people are commuting to a central location.</p>
+								<h1 class="modal-title-cstm">Turn your camera off</h1>
+								<p class="smaller-description">Video conferences <a
+										href="https://news.mit.edu/2021/how-to-reduce-environmental-impact-next-virtual-meeting-0304."
+										target="_blank"> use significantly more energy </a> than voice calls because there is more data to store and transfer via the internet. Reduce the carbon footprint of your meetings by up to 96% by disabling the cameras on your computers, televisions, tablets, and phones during calls.</p>
+								<h1 class="modal-title-cstm">Avoid food wastage</h1>
+								<p class="smaller-description">Organising meetings at breakfast or lunch time means providing things like pastries and sandwiches for attendees. Much of this ends up being thrown away which is a waste of the food, its carbon footprint, and of your money. Avoid this by ordering less or scheduling meetings at other times.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="comServicesCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/email.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Send fewer emails</h1>
+								<p class="smaller-description">Yes, even emails have carbon footprints. <a
+										href="https://www.eco2greetings.com/News/The-Carbon-Footprint-of-Email-vs-Postal-Mail.html#:~:text=A%20normal%20email%2C%20one%20without,filtering%20and%20reading%20your%20messages.&text=Every%20email%20processed%20uses%20electricity"
+										target="_blank">Analysts have calculated</a> that, on average, a year of emailing emits close to 140kg - the same as driving 200 miles in a petrol car! Limit this by thinking twice before sending emails and keeping any attachments as small as possible.</p>
+								<h1 class="modal-title-cstm">Empty your inboxes</h1>
+								<p class="smaller-description">Storing emails in the data centres of cloud-based platforms requires huge amounts of energy. Reduce the carbon footprint of your email inboxes by deleting any unnecessary messages (especially those with large attachments) and emptying your junk folders regularly. Learn more <a
+										href="https://www.greenmatters.com/p/do-emails-leave-carbon-footprint#:~:text=Deleting%20emails%20is%20the%20easiest,once%20you've%20read%20them."
+										target="_blank">here</a></p>
+								<h1 class="modal-title-cstm">Unsubscribing</h1>
+								<p class="smaller-description">According to <a
+										href="https://www.greenmatters.com/p/do-emails-leave-carbon-footprint#:~:text=Deleting%20emails%20is%20the%20easiest,once%20you've%20read%20them."
+										target="_blank"> The Good Planet</a>, nearly 110 billion spam emails are received every day, emitting the same CO2e as 3.1 million petrol-powered cars! One way to reduce the number of emails being sent and stored is to unsubscribe from marketing newsletters that you don’t intend to read. </p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="phyComCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/printing.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Print double-sided</h1>
+								<p class="smaller-description">This might be self-evident, but double-sided printing is an effective, accessible way to reduce the amount of paper we waste by <a
+										href="https://www.sustainablebusinesstoolkit.com/green-printing-tips-and-advice/"
+										target="_blank"> up to 40%.</a>  Printers can be configured to print on both sides automatically in their settings, learn how <a
+												href="https://green.harvard.edu/tools-resources/how/double-sided-printing-windows-computers"
+												target="_blank"> here</a></p>
+								<h1 class="modal-title-cstm">Using recycled printing paper</h1>
+								<p class="smaller-description">The process of recycling paper generates <a
+										href="https://recycled-papers.co.uk/green-matters/why-use-recycled-papers#:~:text=When%20it%20comes%20to%20paper,recycled%204%20to%205%20times"
+										target="_blank"> 20% less CO2e</a> than is produced during incineration. Moreover, manufacturing one tonne of virgin paper fibres <a
+												href="https://recycled-papers.co.uk/green-matters/why-use-recycled-papers#:~:text=When%20it%20comes%20to%20paper,recycled%204%20to%205%20times"
+												target="_blank"> requires 35,000 more litres of water</a> than is needed to produce the same amount of recycled paper. Use paper from recycled sources where possible.</p>
+								<h1 class="modal-title-cstm">Out with the old</h1>
+								<p class="smaller-description">Older printers are more than capable of meeting the small-scale requirements of most offices, but become inefficient when asked to work at higher capacities. Save on power by investing in a newer, more energy efficient machine that’s designed for large volume printing. Bonus points for buying one second-hand!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="devicesCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/employee.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Adjust power settings</h1>
+								<p class="smaller-description">Devices like computers, laptops, and televisions have settings that cause them to go into sleep or hibernation modes automatically after periods of inactivity. This allows you to prevent them from using energy unnecessarily when not in use and preserve the battery life of portable devices!
+								</p>
+								<h1 class="modal-title-cstm">Reduce your screen brightness</h1>
+								<p class="smaller-description">Brighter screens consume more energy when in use. Fortunately, <a
+										href="https://green.harvard.edu/tools-resources/green-tip/reduce-monitor-brightness-reduce-energy"
+										target="_blank"> studies show</a> that by dimming your monitor’s brightness from 100% to 70%, you can instantly reduce its energy consumption by a fifth. Oh, and it’ll give your eyes a <a
+										href="https://green.harvard.edu/tools-resources/green-tip/reduce-monitor-brightness-reduce-energy"
+										target="_blank"> much-needed rest</a>, too! </p>
+								<h1 class="modal-title-cstm">Explore offsetting initiatives</h1>
+								<p class="smaller-description"><a
+										href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwifwMz1l-L5AhWG7u0KHfneDJ4YABABGgJkZw&ohost=www.google.com&cid=CAESbeD2y-bDxYcSL8GWaxfurSn5IsHz2Y8ly3ddUp3UheQluVHnqhR0DGlodIFGWGGykYhQ7mVpIFzZSCa0EzgzTCEbyQyZRrLlPcXCIDsVrJtH3GP2Cu1Iowvn1ksBqUQbwVuSxdvJRd9OCn4yyqI&sig=AOD64_0io4A0ikCQOylsf_mlEmHg3grvOg&q&adurl&ved=2ahUKEwjNvsX1l-L5AhUCTMAKHQxMDjAQ0Qx6BAgEEAE"
+										target="_blank">Ecosia</a> - a free browser extension that funds tree planting schemes from its profits - enables you to offset the CO2e you produce by using electronic devices. Encourage your employees to add Ecosia onto their search engines to support its projects and offset your business’s emissions.
+ </p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="adCardModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/ad.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Explore carbon offsetting</h1>
+								<p class="smaller-description">Carbon offsetting has become something of a swear word in
+									climate circles. There’s no end of very credible arguments for this – perhaps, most
+									importantly, that ultimately offsetting does little to encourage actual behavioural
+									change, which is what’s required if we’re to mitigate the worst parts of climate
+									change. However, if there’s one thing we can be certain of, it’s that society is
+									slow to change.</p>
+								<h1 class="modal-title-cstm">Manage assets</h1>
+								<p class="smaller-description">Much of digital ad serving still relies on downloading
+									content to the end user’s device. This means one of the largest contributors to CO2
+									emissions within the digital media space is the serving of the creative itself.</p>
+								<h1 class="modal-title-cstm">Don't waste time</h1>
+								<p class="smaller-description">As a general rule, the busier an energy grid is, the less
+									efficient (and more carbon-intensive) it becomes. So running just 5% of campaigns
+									during non-peak times can have a significant impact on the amount of CO2 emissions
+									they generate.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+
+	<!-- FIRST MODAL FOR INSTRUCTIONS STARTS HERE -->
+	<!-- FIRST MODAL FOR INSTRUCTIONS STARTS HERE -->
+	<!-- FIRST MODAL FOR INSTRUCTIONS STARTS HERE -->
+	<div class="modal fade" id="instructionsModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">How to use this carbon footprint calculator</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question"></h1>
+						<p class="smaller-description">This carbon calculator tool has been developed by Hattrick to help businesses like yours keep track of the CO2e (carbon dioxide equivalent) emissions they produce. You will already be familiar with some of the categories, but there may well be some that come as a surprise. The hope is that, by empowering more people with the knowledge and insights about the environmental impacts of their business operations, we can work together to slow, stop, and reverse the potentially catastrophic effects of climate change.
+						</p>
+						<p class="smaller-description">On the first tab of this calculator, you will input information about your day-to-day business activities that generate carbon emissions. It may be helpful to gather all of this information before you start. When you have finished filling in all of a category’s fields, the relevant button will change from blue to grey.
+						</p>
+						<p class="smaller-description">The second tab will provide you with recommendations for how you can reduce your carbon emissions, based on your current footprint. To gain access to these, simply register your interest using your email address when prompted. So, are you ready? Close this dialogue box to begin your own sustainability journey!
+
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FIRST MODAL FOR INSTRUCTIONS ENDS HERE -->
+	<!-- FIRST MODAL FOR INSTRUCTIONS ENDS HERE -->
+	<!-- FIRST MODAL FOR INSTRUCTIONS ENDS HERE -->
+	<div class="modal fade" id="instructionsModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Instructions</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How can I check the carbon footprint level? </h1>
+						<p class="smaller-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+							eget lacus sit amet ante vulputate gravida. Pellentesque dapibus suscipit iaculis. Maecenas
+							sed eros maximus, commodo purus quis, mollis arcu. Mauris mi odio, elementum dapibus mi non,
+							porta tristique urna. Nullam et maximus dui. Sed blandit, diam in pharetra sodales, nisi
+							quam ultricies felis, ut malesuada arcu ex et elit. Ut sed metus id eros volutpat elementum.
+						</p>
+						<p class="smaller-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+							eget lacus sit amet ante vulputate gravida. Pellentesque dapibus suscipit iaculis. Maecenas
+							sed eros maximus, commodo purus quis, mollis arcu. Mauris mi odio, elementum dapibus mi non,
+							porta tristique urna. Nullam et maximus dui. Sed blandit, diam in pharetra sodales, nisi
+							quam ultricies felis, ut malesuada arcu ex et elit. Ut sed metus id eros volutpat elementum.
+						</p>
+						<p class="smaller-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+							eget lacus sit amet ante vulputate gravida. Pellentesque dapibus suscipit iaculis. Maecenas
+							sed eros maximus, commodo purus quis, mollis arcu. Mauris mi odio, elementum dapibus mi non,
+							porta tristique urna. Nullam et maximus dui. Sed blandit, diam in pharetra sodales, nisi
+							quam ultricies felis, ut malesuada arcu ex et elit. Ut sed metus id eros volutpat elementum.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FIRST MODAL FOR INSTRUCTIONS ENDS HERE -->
+	<!-- FIRST MODAL FOR INSTRUCTIONS ENDS HERE -->
+	<!-- FIRST MODAL FOR INSTRUCTIONS ENDS HERE -->
+	<!-- MODAL FOR NEW CATEGORIES -->
+	<!-- MODAL FOR NEW CATEGORIES -->
+	<!-- MODAL FOR NEW CATEGORIES -->
+	<!-- modal starts -->
+	<div class="modal fade" id="websiteModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Website Visits</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many page views per month does your website/s generate?</h1>
+						<p class="smaller-description">The average web page tested produces approximately 0.5 grams CO2
+							per page view. For a website with 10,000 monthly page views, that's 60 kg CO2 per year. <a
+								href="https://www.websitecarbon.com/">Source</a></p>
+						<div class="website-box" id="website1">
+							<div class="row custom-selectff cstm-margin ">
+								<div class="col-lg-8"> <input type="text" class="websiteBox"
+										placeholder="Average number of page views per month" id="websiteVisitors">
+								</div>
+							</div>
+						</div>
+						<div class="anotherWebsite"> </div> <button id="addMoreWebsite">+ Add More</button>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- modal ends -->
+	<!-- modal starts -->
+	<div class="modal fade" id="smmModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Social Media Management</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many minutes does your team spend using social media per day?</h1>
+						<p class="smaller-description"></p>
+						<div class="website-box" id="smm">
+							<div class="row custom-selectff cstm-margin ">
+								<div class="col-lg-8"> <input type="text" class="smmBox" placeholder="LinkedIn "
+										id="smmLinked">
+								</div>
+								<div class="col-lg-8"> <input type="text" class="smmBox" placeholder="Facebook "
+										id="smmFacebook">
+								</div>
+								<div class="col-lg-8"> <input type="text" class="smmBox" placeholder="Twitter "
+										id="smmTwitter">
+								</div>
+								<div class="col-lg-8"> <input type="text" class="smmBox" placeholder="Instagram "
+										id="smmInstagram">
+								</div>
+								<div class="col-lg-8"> <input type="text" class="smmBox" placeholder="YouTube "
+										id="smmYouTube">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- modal ends -->
+	<!-- modal starts -->
+	<div class="modal fade" id="eventsModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Events</h5> <button type="button" class="btn-close"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many events has your team attended over the last year?</h1>
+						<p class="smaller-description"></p>
+						<div class="website-box" id="events">
+							<div class="row custom-selectff cstm-margin ">
+								<div class="col-lg-8"> <input type="text" class="smmBox" placeholder="No. of events?"
+										id="numOfEvents">
+								</div>
+								<div class="col-lg-8"> <input type="text" class="smmBox" placeholder="No. of attendees?"
+										id="numOfAttendees">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- modal ends -->
+	<!-- modal starts -->
+	<div class="modal fade" id="dcModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Digital Communication</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many of the following does your team generate per year?</h1>
+						<p class="smaller-description">The average person conducts between three and four Google
+							searches each day. <a href="https://blog.hubspot.com/marketing/google-search-statistics"
+								target="_blank" rel="noopener noreferrer">Source</a></p>
+						<div class="website-box" id="dc">
+							<div class="row custom-selectff cstm-margin ">
+								<div class="col-lg-8"> <input type="text" class="smmBox"
+										placeholder="No. promotional/ marketing emails?" id="numOfEmails">
+								</div>
+								<div class="col-lg-8"> <input type="text" class="smmBox"
+										placeholder="No. of Google searches?" id="numOfSearches">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- modal ends -->
+	<!-- modal starts -->
+	<div class="modal fade" id="daModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Digital Advertising</h5> <button type="button"
+						class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="cstm-modal" id="m-cstm-modal">
+						<h1 class="question">How many digital adverts has your business completed over the last year?
+						</h1>
+						<p class="smaller-description"></p>
+						<div class="website-box" id="dc">
+							<div class="row custom-selectff cstm-margin ">
+								<div class="col-lg-8"> <input type="text" class="smmBox"
+										placeholder="No. of large campaigns:" id="numOfCampiagnsLarge">
+								</div>
+								<p class="smaller-description">(Based upon promoting 500mb worth of assets e.g. video
+									files, images etc with 250,000 impressions)</p>
+								<div class="col-lg-8"> <input type="text" class="smmBox"
+										placeholder="No. of medium campaigns:" id="numOfCampiagnsMedium">
+								</div>
+								<p class="smaller-description">(Based upon promoting 250mb worth of assets e.g. video
+									files, images etc with 150,000 impressions)</p>
+								<div class="col-lg-8"> <input type="text" class="smmBox"
+										placeholder="No. of small campaigns:" id="numOfCampiagnsSmall">
+									<p class="smaller-description">(Based upon promoting 125mb worth of assets e.g.
+										video files, images etc with 50,000 impressions)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer"> <button type="button" class="btn btn-success result-btn">See Results</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- modal ends -->
+	<!-- MODAL FOR NEW CATEGORIES -->
+	<!-- MODAL FOR NEW CATEGORIES -->
+	<!-- MODAL FOR NEW CATEGORIES -->
+	<!-- NEW CARD MODALS -->
+	<div class="modal fade" id="websiteCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/website.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Audit your website</h1>
+								<p class="smaller-description">By using tools such as Wholegrain Digital’s <a href="https://www.websitecarbon.com/"
+									target="_blank">Website Carbon Calculator,</a> businesses can identify the aspects of their websites that generate the most CO2e emissions. The insights provided can then be used to make updates, changes, and improvements where necessary.</p>
+								<h1 class="modal-title-cstm">Content & SEO</h1>
+								<p class="smaller-description">Search engines analyse the quality of web content to make it as quick and easy as possible for users to find relevant, valuable information. Better quality content means people will spend less time browsing which, in turn, reduces the carbon footprint of your website. Learn more <a href="https://www.wholegraindigital.com/blog/website-energy-efficiency/"
+									target="_blank">here</a></p>
+								<h1 class="modal-title-cstm">Use fewer images and videos</h1>
+								<p class="smaller-description">Photos and videos have the largest file sizes and are the <a href="https://www.wholegraindigital.com/blog/website-energy-efficiency/"
+									target="_blank">biggest contributor</a> to a webpage’s weight. By choosing to use smaller, lower resolution images (or, where they don’t add value for the user, removing them entirely) businesses can reduce the amount of energy required to browse their website.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="smmCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/social.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Choose your channels carefully</h1>
+								<p class="smaller-description">Different social media channels have different carbon footprints based on the amount of energy it takes to load and interact with content in your feed. Calculate the CO2e emissions generated through your business’s social media activities using <a href="https://www.comparethemarket.com.au/energy/features/social-carbon-footprint-calculator/"
+									target="_blank">Compare The Market’s online tool.</a></p>
+								<h1 class="modal-title-cstm">Set usage limits</h1>
+								<p class="smaller-description">Limiting ourselves to a set amount of time on social media each day is one of the easiest ways to reduce the carbon emissions generated by stopping us from mindlessly scrolling our newsfeeds. Install <a href="https://www.businessinsider.com/guides/tech/how-to-block-social-media-apps-from-yourself?r=US&IR=T"
+										target="_blank">browser extensions</a> to block social media sites and disable notifications on your devices outside certain times.</p>
+								<h1 class="modal-title-cstm">Post and share less</h1>
+								<p class="smaller-description">Each action we perform on social media contributes to our overall carbon footprint. Encourage your team to be more strategic with the content it posts and shares to generate the same results with less activity. Providing <a href="https://blog.hootsuite.com/social-media-training/"
+										target="_blank">best practice training</a> is an effective way to do this.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="eventsCardModal" data-bs-backdrop="static" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/events.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Opt for online</h1>
+								<p class="smaller-description">Conference venues and exhibition halls consume a lot of energy in heating and lighting, whilst the buildings themselves have large quantities of embodied carbon. <a href="https://www.greenqueen.com.hk/online-conferences-reduce-carbon-footprints/#:~:text=%E2%80%9CWe%20believe%20shifting%20the%20conferences,and%20energy%20use%20by%2090%25"
+										target="_blank">Studies show</a> that moving events online can reduce their carbon footprints and energy usages by 94% and 90% respectively.</p>
+								<h1 class="modal-title-cstm">Hybrid hubs</h1>
+								<p class="smaller-description">A lot of the CO2e emissions generated by conferences, events, and exhibitions comes from attendees travelling from all over the world to a single location. Overcome this by attending events that have hubs in various different locations to minimise the distances your teams have to travel.</p>
+								<h1 class="modal-title-cstm">Provide sustainable food</h1>
+								<p class="smaller-description">If in-person events are non-negotiable, consider providing vegan or vegetarian food and drink for delegates as the carbon footprints of things like meat and dairy are dramatically bigger than plant-based alternatives. Learn more <a href="https://shrinkthatfootprint.com/food-carbon-footprint-diet/"
+										target="_blank">here</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="dcCardModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/email.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Keep inboxes empty</h1>
+								<p class="smaller-description">Many of us are guilty of holding onto emails, SMS messages, and social media chats for longer than necessary. The storage of these requires huge amounts of space in cloud-based servers that have <a href="https://www.holmen.com/en/paper/sustainability/more-about-sustainability/digital-communication-impact/"
+										target="_blank">large carbon footprints.</a> Reduce this by regularly cleansing your inboxes and chat histories.</p>
+								<h1 class="modal-title-cstm">Emails</h1>
+								<p class="smaller-description">Whether it’s for marketing or managing client relations, every email we send generates greenhouse gas emissions. Limit this as much as possible by only sending essential emails, both internally and externally, and avoid copying in lots of users unnecessarily. Learn more from the communications services recommendations</p>
+								<h1 class="modal-title-cstm">Social media</h1>
+								<p class="smaller-description">The majority of businesses have a presence on social media, be it on one or a number of platforms. All social media activity has a carbon footprint, so limiting this as much as possible is an effective way to reduce the CO2e generated. Learn more from the social media recommendations.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="daCardModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/advertising.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Campaign calculator</h1>
+								<p class="smaller-description">Use tools such as <a href="https://good-loop.com/resources/carbon-calculator"
+										target="_blank">Good-Loop’s carbon calculator</a> to work out how much CO2e your business’s advertising campaigns are generating. Then, using the insights provided, optimise your production and distribution processes to reduce their carbon footprint where possible.</p>
+								<h1 class="modal-title-cstm">Sustainable shoots</h1>
+								<p class="smaller-description">Producing video content generates a lot of carbon emissions, be it through travelling to filming destinations or building sets. Limit these emissions by repurposing existing content where possible and, if new video collateral is required, use filming locations that are nearby. Learn more <a href="https://drive.google.com/file/d/1LphBfn2BG9vxeOTMLX-h7-gAMhlTG8co/view"
+											target="_blank">here.</a></p>
+								<h1 class="modal-title-cstm">Use targeted advertising</h1>
+								<p class="smaller-description">Think about the audience demographic that you are trying to reach with your ad campaign and optimise it accordingly. <a href="https://themanifest.com/ppc/blog/what-is-targeted-advertising"
+										target="_blank">Targeting</a>  in this way will reduce the number of pointless impressions (all of which have a carbon footprint) and maximise the potential of your PPC budget!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="dcCardModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/printing.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Double sided printing</h1>
+								<p class="smaller-description">As far as cost per sheet goes, there isn’t much
+									difference between double-sided printing and single-sided but there are many
+									benefits in terms of environmental sustainability. But just adopting this simple
+									technique reduces your paper consumption by half.</p>
+								<h1 class="modal-title-cstm">Paper type</h1>
+								<p class="smaller-description">Printing on recycled paper reduces your carbon footprint.
+									If we were to print out a year’s supply of A4 documents for example for argument’s
+									sake 30 sheets per day that would be 7,800 sheets for more sustainably sourced paper
+									used.</p>
+								<h1 class="modal-title-cstm">Green up old printers</h1>
+								<p class="smaller-description">If you have any older printers in your inventory then it
+									might be worth thinking about replacing them (or at least having plans in place to
+									do so). Older machines are often still good enough for most day-to-day printing
+									requirements but anything more than this and they’ll use more power than their newer
+									counterparts.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="daCardModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog  modal-dialog-centered modal-lg ">
+			<!--  modal-dialog -modal-dialog-centered modal-lgcentered -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 				<h5 class="modal-title" id="exampleModalLabel">Recommendations</h5> --> <button
+						type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-4"> <img src="img/printing.png" alt=""> </div>
+						<div class="col-lg-8">
+							<div class="cstm-modal">
+								<h1 class="modal-title-cstm">Double sided printing</h1>
+								<p class="smaller-description">As far as cost per sheet goes, there isn’t much
+									difference between double-sided printing and single-sided but there are many
+									benefits in terms of environmental sustainability. But just adopting this simple
+									technique reduces your paper consumption by half.</p>
+								<h1 class="modal-title-cstm">Paper type</h1>
+								<p class="smaller-description">Printing on recycled paper reduces your carbon footprint.
+									If we were to print out a year’s supply of A4 documents for example for argument’s
+									sake 30 sheets per day that would be 7,800 sheets for more sustainably sourced paper
+									used.</p>
+								<h1 class="modal-title-cstm">Green up old printers</h1>
+								<p class="smaller-description">If you have any older printers in your inventory then it
+									might be worth thinking about replacing them (or at least having plans in place to
+									do so). Older machines are often still good enough for most day-to-day printing
+									requirements but anything more than this and they’ll use more power than their newer
+									counterparts.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	<div class="modal-footer">
+
+				<button type="button" data-bs-dismiss="modal" class="btn btn-success back-btn">Back</button>
+			</div> -->
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p class="footer-text"> All recommendations are based off the current UK Average Carbon Footprint </p>
+		<p class="copyright">Copyright © 2022 We Are Hattrick Ltd. Registered company number: 07462794</p>
+	</footer>
+	<script id="scripts"> </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+		crossorigin="anonymous"></script>
+	<script>
+		//var options="";//var myModal = new bootstrap.Modal(document.getElementById('mModal'), options); myModal.show();
+
+		// Number.prototype.round = function(n) {
+		//   const d = Math.pow(10, n);
+		//   return Math.round((this + Number.EPSILON) * d) / d;
+		// };
+		var cc = 1;
+		var crc = 1;
+		var mc = 1
+		var score = 0;
+		var oldScore = 0;
+		var cData = {}
+		// $("#carBtn").click(function(){
+		// 	//alert("hello");
+
+		// 	var carModal=new bootstrap.Modal(document.getElementById('carModal'), {});
+
+		// 	carModal.show();
+		// 	console.log($('input[name="platform"]:checked').val());
+
+
+
+		// });
+
+
+
+		var busCardModal = new bootstrap.Modal(document.getElementById('busCardModal'), {});
+
+
+		$("#busCard").click(function () {
+			//alert("hello");
+
+
+			busCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+		var carCardModal = new bootstrap.Modal(document.getElementById('carCardModal'), {});
+
+
+		$("#carCard").click(function () {
+			//alert("hello");
+
+
+			carCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+		var flightCardModal = new bootstrap.Modal(document.getElementById('flightCardModal'), {});
+
+
+		$("#flightCard").click(function () {
+			//alert("hello");
+
+
+			flightCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+		var trainCardModal = new bootstrap.Modal(document.getElementById('trainCardModal'), {});
+
+
+		$("#trainCard").click(function () {
+			//alert("hello");
+
+
+			trainCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+		var electricityCardModal = new bootstrap.Modal(document.getElementById('electricityCardModal'), {});
+
+
+		$("#electricityCard").click(function () {
+			//alert("hello");
+
+
+			electricityCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+		var gasCardModal = new bootstrap.Modal(document.getElementById('gasCardModal'), {});
+
+
+		$("#gasCard").click(function () {
+			//alert("hello");
+
+
+			gasCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+
+		var waterCardModal = new bootstrap.Modal(document.getElementById('waterCardModal'), {});
+
+
+		$("#waterCard").click(function () {
+			//alert("hello");
+
+
+			waterCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+
+		var appliancesCardModal = new bootstrap.Modal(document.getElementById('appliancesCardModal'), {});
+
+
+		$("#appliancesCard").click(function () {
+			//alert("hello");
+
+
+			appliancesCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+
+		var hotelCardModal = new bootstrap.Modal(document.getElementById('hotelCardModal'), {});
+
+
+		$("#hotelCard").click(function () {
+			//alert("hello");
+
+
+			hotelCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+		var materialsCardModal = new bootstrap.Modal(document.getElementById('materialsCardModal'), {});
+
+
+		$("#materialsCard").click(function () {
+			//alert("hello");
+
+
+			materialsCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+		var hybridWorkCardModal = new bootstrap.Modal(document.getElementById('hybridWorkCardModal'), {});
+
+
+		$("#hybridWorkCard").click(function () {
+			//alert("hello");
+
+
+			hybridWorkCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+		var meetingsCardModal = new bootstrap.Modal(document.getElementById('meetingsCardModal'), {});
+
+
+		$("#meetingsCard").click(function () {
+			//alert("hello");
+
+
+			meetingsCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+		var comServicesCardModal = new bootstrap.Modal(document.getElementById('comServicesCardModal'), {});
+
+
+		$("#comServicesCard").click(function () {
+			//alert("hello");
+
+
+			comServicesCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+
+
+
+		var devicesCardModal = new bootstrap.Modal(document.getElementById('devicesCardModal'), {});
+
+
+		$("#devicesCard").click(function () {
+			//alert("hello");
+
+
+			devicesCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+
+		var adCardModal = new bootstrap.Modal(document.getElementById('adCardModal'), {});
+
+
+		$("#adCard").click(function () {
+			//alert("hello");
+
+
+			adCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+
+		var phyComCardModal = new bootstrap.Modal(document.getElementById('phyComCardModal'), {});
+
+
+		$("#phyComCard").click(function () {
+			//alert("hello");
+
+
+			phyComCardModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		var busModal = new bootstrap.Modal(document.getElementById('busModal'), {});
+
+
+		$("#busBtn").click(function () {
+			//alert("hello");
+
+
+			busModal.show();
+			// console.log($('input[name="platform"]:checked').val());
+
+
+		});
+
+
+		// if($('#busBtn').attr('data-old')!== undefined){
+		//        let score=0;
+		// 		score=$('#busBtn').attr('data-old');
+
+		// 		if(score>=5&&score<10){
+
+		// 			$('#bus-card-score').parent().addClass("amber")
+
+		// 		}
+
+		// 			if(score>=10){
+
+		// 			$('#bus-card-score').parent().addClass("red")
+
+		// 		}
+
+		// 	}
+
+
+
+		$("#busModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+			let amount = $("#busInput").val();
+			let formula = $("#busModal .selected").data("formula");
+			let scoreBus = 0;
+			scoreBus = amount * formula;
+
+			let oldScore = 0;
+
+			if ($('#busBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#busBtn').attr('data-old');
+
+			}
+
+
+			score += scoreBus;
+
+			score -= oldScore;
+
+
+
+			$("#score").html(score.toFixed(2));
+
+
+			busModal.hide();
+
+			$('#busBtn').attr('data-old', scoreBus);
+
+			if (scoreBus < 5) {
+
+				$('#bus-card-score').parent().removeClass("amber");
+				$('#bus-card-score').parent().removeClass("red");
+
+				$('#bus-card-score').parent().addClass("green");
+				$('#bus-card-score').html(scoreBus.toFixed(2));
+			}
+
+
+			if (scoreBus >= 5 && scoreBus < 10) {
+
+				$('#bus-card-score').parent().removeClass("green");
+				$('#bus-card-score').parent().removeClass("red");
+
+				$('#bus-card-score').parent().addClass("amber");
+				$('#bus-card-score').html(scoreBus.toFixed(2));
+			}
+
+			if (score >= 10) {
+
+
+				$('#bus-card-score').parent().removeClass("green");
+				$('#bus-card-score').parent().removeClass("amber");
+
+				$('#bus-card-score').parent().addClass("red");
+				$('#bus-card-score').html(scoreBus.toFixed(2));
+
+			}
+
+			$("#busBtn").addClass("selectedType");
+			$(".top-heading").show(500);
+
+		});
+
+
+
+		var hybridWorkModal = new bootstrap.Modal(document.getElementById('hybridWorkModal'), {});
+
+		$("#hybridWorkBtn").click(function () {
+
+
+
+			hybridWorkModal.show();
+
+
+
+		});
+
+
+		$("#hybridWorkModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+			let amount = Number($("#hybridSelect").val());
+			// formula=$("#h .selected").data("formula");
+
+
+			// alert(amount);
+
+			let scoreHybridWork = 0;
+			scoreHybridWork = amount;
+
+
+			//alert(scoreHybridWork);
+
+
+			let oldScore = 0;
+
+			if ($('#hybridWorkBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#hybridWorkBtn').attr('data-old');
+
+			}
+			score += scoreHybridWork;
+			//alert(oldScore)
+
+			//alert(score);
+
+			score -= oldScore;
+
+			//alert(score);
+
+			$("#score").html(score);
+
+
+
+
+			hybridWorkModal.hide();
+
+
+			$('#hybridWorkBtn').attr('data-old', scoreHybridWork);
+
+
+			$('#hybridWork-card-score').html(scoreComService.toFixed(2));
+
+			$("#hybridWorkBtn").addClass("selectedType");
+			$(".top-heading").show(500);
+
+		});
+
+
+
+
+
+
+		var meetingsModal = new bootstrap.Modal(document.getElementById('meetingsModal'), {});
+
+		$("#meetingsBtn").click(function () {
+			//alert("hello");
+
+			meetingsModal.show();
+
+
+
+
+		});
+
+
+		$("#meetingsModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+			let m1 = 0;
+			let m2 = 0;
+
+			m1 = $("#meetingsInput").val();
+			m2 = $("#meetingsInput2").val();
+
+			let scoreMeetings = 0;
+
+			scoreMeetings += m1 * 0.0037;
+
+			scoreMeetings += m2 * 0.000005;
+
+
+
+
+
+			let oldScore = 0;
+
+			if ($('#meetingsBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#meetingsBtn').attr('data-old');
+
+			}
+			score += scoreMeetings;
+
+			score -= oldScore;
+			$("#score").html(score.toFixed(2));
+
+
+
+			$('#meetingsBtn').attr('data-old', scoreMeetings);
+
+			meetingsModal.hide();
+
+
+			$('#meetings-card-score').html(scoreMeetings.toFixed(2));
+
+			$("#meetingsBtn").addClass("selectedType");
+			$(".top-heading").show(500);
+
+		});
+
+		var comServicesModal = new bootstrap.Modal(document.getElementById('comServicesModal'), {});
+
+
+		$("#comServicesBtn").click(function () {
+
+
+			comServicesModal.show();
+
+
+
+		});
+
+
+
+		$("#comServicesModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+			let emailsNumber = $("#comServicesInput").val();
+			let scoreComService = 0;
+			scoreComService = emailsNumber * 0.004;
+
+			let oldScore = 0;
+
+			if ($('#comServicesBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#comServicesBtn').attr('data-old');
+
+			}
+
+
+			score += scoreComService;
+			score -= oldScore;
+			$("#score").html(score.toFixed(2));
+
+
+
+
+			comServicesModal.hide();
+
+			$('#comServicesBtn').attr('data-old', scoreComService);
+
+
+			$('#comServices-card-score').html(scoreComService.toFixed(2));
+
+			$("#comServicesBtn").addClass("selectedType");
+			$(".top-heading").show(500);
+
+		});
+
+
+
+
+
+		function countryCalc() {
+
+			let i = 1;
+			let score = 0;
+
+			while (i <= cc) {
+
+
+
+				let countryVal = $("#country" + i + " select").val();
+
+				let inputVal = $("#country" + i + " input").val();
+
+				score += countryVal * inputVal;
+
+				i++;
+			}
+
+			return score;
+
+		}
+
+
+		function materialCalc() {
+
+			let i = 1;
+			let score = 0;
+
+			while (i <= mc) {
+
+
+
+				let materialVal = $("#material" + i + " select").val();
+
+				let inputVal = $("#material" + i + " input").val();
+
+				inputVal = inputVal * 0.001;
+
+				score += materialVal * inputVal;
+
+				i++;
+			}
+
+			return score;
+
+		}
+
+
+
+
+		function carCalc() {
+
+			let i = 1;
+			let score = 0;
+
+			while (i <= crc) {
+
+
+				// alert($("#country"+cc+" select").val());
+
+				// $(".top-heading").append($("#car"+i+" select").val());
+				//   $(".top-heading").append("<br>");
+
+				let carVal = $("#car" + i + " select").val();
+				let inputVal = $("#car" + i + " input").val();
+				let unit = $("#car" + i + " .selected").html();
+
+
+
+				//alert(unit);
+				if (carVal == 1) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.1361;
+
+
+					} else {
+
+						score += inputVal * 0.21903;
+
+					}
+
+				}
+
+				if (carVal == 2) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.1063;
+
+
+					} else {
+
+						score += inputVal * 0.17108;
+
+					}
+
+				}
+
+				if (carVal == 3) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0
+
+
+					} else {
+
+						score += inputVal * 0;
+
+					}
+
+				}
+
+
+				if (carVal == 4) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.22342;
+
+
+					} else {
+
+						score += inputVal * 0.35956;
+
+					}
+
+				}
+
+
+				if (carVal == 5) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.17399;
+
+
+					} else {
+
+						score += inputVal * 0.28002;
+
+					}
+
+				}
+
+
+				if (carVal == 6) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.07198;
+
+
+					} else {
+
+						score += inputVal * 0.11584;
+
+					}
+
+				}
+
+				if (carVal == 7) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.32586;
+
+
+					} else {
+
+						score += inputVal * 0.52442;
+
+					}
+
+				}
+
+				if (carVal == 8) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.21174;
+
+
+					} else {
+
+						score += inputVal * 0.34078;
+
+					}
+
+				}
+
+
+				if (carVal == 9) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.09325;
+
+
+
+					} else {
+
+						score += inputVal * 0.15007;
+
+
+					}
+
+				}
+
+
+				if (carVal == 10) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.24266;
+
+
+					} else {
+
+						score += inputVal * 0.39052;
+
+					}
+
+				}
+
+
+				if (carVal == 11) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.16664;
+
+
+					} else {
+
+						score += inputVal * 0.26819;
+
+					}
+
+				}
+
+
+				if (carVal == 12) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.07653;
+
+
+					} else {
+
+						score += inputVal * 0.12316;
+
+					}
+
+				}
+
+				if (carVal == 13) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.19479;
+
+
+
+					} else {
+
+						score += inputVal * 0.31349;
+
+
+					}
+
+				}
+
+				if (carVal == 14) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0.17503;
+
+
+					} else {
+
+						score += inputVal * 0.2817;
+
+					}
+
+				}
+
+				if (carVal == 15) {
+
+					if (unit == "KM") {
+
+
+						score += inputVal * 0;
+
+
+					} else {
+
+						score += inputVal * 0;
+
+					}
+
+				}
+
+				//   $(".top-heading").append("cc"+crc);
+				i++;
+			}
+
+			return score;
+
+		}
+
+
+		var hotelModal = new bootstrap.Modal(document.getElementById('hotelModal'), {});
+
+		$("#hotelBtn").click(function () {
+			//alert("hello");
+
+
+
+			hotelModal.show();
+			//console.log($('input[name="platform"]:checked').val());
+
+
+
+
+
+		});
+
+		$("#hotelModal .result-btn").click(function () {
+
+
+			countryCalc();
+
+			let scoreCountry = 0;
+			scoreCountry = countryCalc();
+
+			let oldScore = 0;
+
+			if ($('#hotelBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#hotelBtn').attr('data-old');
+
+			}
+
+			//alert(oldScore);
+
+
+			score += scoreCountry;
+
+			score -= oldScore;
+
+
+			$("#score").html(score.toFixed(2));
+
+
+
+			hotelModal.hide();
+
+
+			$('#hotelBtn').attr('data-old', scoreCountry);
+
+
+			if (scoreCountry < 300) {
+				$('#hotel-card-score').parent().removeClass("red");
+				$('#hotel-card-score').parent().removeClass("amber");
+
+				$('#hotel-card-score').parent().addClass("green");
+				$('#hotel-card-score').html(scoreCountry.toFixed(2));
+			}
+
+
+			if (scoreCountry >= 300 && scoreCountry < 500) {
+				$('#hotel-card-score').parent().removeClass("red");
+				$('#hotel-card-score').parent().removeClass("green");
+
+				$('#hotel-card-score').parent().addClass("amber");
+				$('#hotel-card-score').html(scoreCountry.toFixed(2));
+			}
+
+			if (scoreCountry >= 500) {
+
+				$('#hotel-card-score').parent().removeClass("amber");
+				$('#hotel-card-score').parent().removeClass("green");
+
+
+				$('#hotel-card-score').parent().addClass("red");
+				$('#hotel-card-score').html(scoreCountry.toFixed(2));
+
+			}
+
+
+
+
+
+
+
+
+
+
+			$("#hotelBtn").addClass("selectedType");
+			$(".top-heading").show(500);
+
+		});
+
+
+
+
+
+
+
+		var carModal = new bootstrap.Modal(document.getElementById('carModal'), {});
+
+		$("#carBtn").click(function () {
+			//alert("hello");
+
+
+
+			carModal.show();
+			//console.log($('input[name="platform"]:checked').val());
+
+
+
+
+
+		});
+
+		$("#carModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+			// var amount=$("#carInput").val();
+			// var formula=$("#m-cstm-modal .selected").data("formula");
+
+			// score+=amount*formula;
+			// $("#score").html(score.toFixed(2));
+
+			//alert(cc);
+
+			let scoreCar = 0;
+			scoreCar = carCalc();
+
+			let oldScore = 0;
+
+			if ($('#carBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#carBtn').attr('data-old');
+
+			}
+
+			//alert(oldScore);
+
+
+			score += scoreCar;
+
+			score -= oldScore;
+
+			$("#score").html(score.toFixed(2));
+
+			carModal.hide();
+
+			$("#carBtn").addClass("selectedType");
+
+			//$("#carBtn").data('info', '222');
+			$('#carBtn').attr('data-old', scoreCar);
+
+
+
+
+
+			if (scoreCar < 500) {
+				$('#car-card-score').parent().removeClass("red");
+				$('#car-card-score').parent().removeClass("amber");
+
+				$('#car-card-score').parent().addClass("green");
+				$('#car-card-score').html(scoreCar.toFixed(2));
+			}
+
+
+			if (scoreCar >= 500 && scoreCar < 650) {
+
+				$('#car-card-score').parent().removeClass("red");
+				$('#car-card-score').parent().removeClass("green");
+
+				$('#car-card-score').parent().addClass("amber");
+				$('#car-card-score').html(scoreCar.toFixed(2));
+			}
+
+			if (scoreCar >= 650) {
+				$('#car-card-score').parent().removeClass("amber");
+				$('#car-card-score').parent().removeClass("green");
+
+				$('#car-card-score').parent().addClass("red");
+				$('#car-card-score').html(scoreCar.toFixed(2));
+
+			}
+			$(".top-heading").show(500);
+
+		});
+
+
+
+
+
+
+
+
+		var materialModal = new bootstrap.Modal(document.getElementById('materialModal'), {});
+
+
+
+		$("#materialBtn").click(function () {
+			//alert("hello");
+
+
+			materialModal.show();
+
+
+
+
+
+		});
+
+
+
+
+		$("#materialModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+
+			//countryCalc();
+
+			let scoreMaterial = 0;
+			scoreMaterial = materialCalc();
+
+			//alert(scoreMaterial);
+
+			let oldScore = 0;
+
+			if ($('#materialBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#materialBtn').attr('data-old');
+
+			}
+
+			//alert(oldScore);
+
+
+			score += scoreMaterial;
+
+			score -= oldScore;
+
+
+			$("#score").html(score.toFixed(2));
+
+
+
+			materialModal.hide();
+
+
+			$('#materialBtn').attr('data-old', scoreMaterial);
+
+			$('#materials-card-score').html(scoreMaterial.toFixed(2));
+
+			$("#materialBtn").addClass("selectedType");
+			$(".top-heading").show(500);
+
+
+		});
+
+		var flightModal = new bootstrap.Modal(document.getElementById('flightModal'), {});
+
+
+
+
+		$("#flightBtn").click(function () {
+			//alert("hello");
+
+
+			flightModal.show();
+
+
+
+
+		});
+
+
+
+		$("#flightModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+
+
+			let amount = $("#flightInput").val();
+			let formula = $("#flightModal .selected").data("formula");
+			let scoreFlight = 0;
+			scoreFlight = amount * formula;
+
+			let oldScore = 0;
+
+			if ($('#flightBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#flightBtn').attr('data-old');
+
+			}
+
+
+			score += scoreFlight;
+
+			score -= oldScore;
+
+
+
+			$("#score").html(score.toFixed(2));
+
+
+			flightModal.hide();
+
+			$('#flightBtn').attr('data-old', scoreFlight);
+
+
+
+
+
+			if (scoreFlight < 600) {
+
+				$('#flight-card-score').parent().removeClass("red");
+				$('#flight-card-score').parent().removeClass("amber");
+
+				$('#flight-card-score').parent().addClass("green");
+				$('#flight-card-score').html(scoreFlight.toFixed(2));
+			}
+
+
+			if (scoreFlight >= 600 && scoreFlight < 1000) {
+
+				$('#flight-card-score').parent().removeClass("red");
+				$('#flight-card-score').parent().removeClass("green");
+
+				$('#flight-card-score').parent().addClass("amber");
+				$('#flight-card-score').html(scoreFlight.toFixed(2));
+			}
+
+			if (scoreFlight >= 1000) {
+				$('#flight-card-score').parent().removeClass("green");
+				$('#flight-card-score').parent().removeClass("amber");
+				$('#flight-card-score').parent().addClass("red");
+				$('#flight-card-score').html(scoreFlight.toFixed(2));
+
+			}
+
+
+
+			$("#flightBtn").addClass("selectedType");
+
+
+
+
+		});
+
+
+		var trainModal = new bootstrap.Modal(document.getElementById('trainModal'), {});
+
+
+		$("#trainBtn").click(function () {
+			//alert("hello");
+
+			trainModal.show();
+
+
+
+
+		});
+
+
+
+		$("#trainModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+
+			let amount = $("#trainInput").val();
+			let formula = $("#trainModal .selected").data("formula");
+			let scoreTrain = 0;
+			scoreTrain = amount * formula;
+
+			let oldScore = 0;
+
+			if ($('#trainBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#trainBtn').attr('data-old');
+
+			}
+
+
+			score += scoreTrain;
+
+			score -= oldScore;
+
+
+
+			$("#score").html(score.toFixed(2));
+
+
+			trainModal.hide();
+
+			$('#trainBtn').attr('data-old', scoreTrain);
+
+
+
+
+			if (scoreTrain < 30) {
+
+				$('#train-card-score').parent().removeClass("red");
+				$('#train-card-score').parent().removeClass("amber");
+
+				$('#train-card-score').parent().addClass("green");
+
+
+				$('#train-card-score').html(scoreTrain.toFixed(2));
+			}
+
+
+			if (scoreTrain >= 30 && scoreTrain < 100) {
+
+
+				$('#train-card-score').parent().removeClass("red");
+				$('#train-card-score').parent().removeClass("green");
+
+				$('#train-card-score').parent().addClass("amber");
+				$('#train-card-score').html(scoreTrain.toFixed(2));
+			}
+
+			if (scoreTrain >= 100) {
+
+				$('#train-card-score').parent().removeClass("green");
+				$('#train-card-score').parent().removeClass("amber");
+
+				$('#train-card-score').parent().addClass("red");
+				$('#train-card-score').html(scoreTrain.toFixed(2));
+
+			}
+
+			$("#trainBtn").addClass("selectedType");
+
+		});
+
+		var electricityModal = new bootstrap.Modal(document.getElementById('electricityModal'), {});
+
+		$("#electricityBtn").click(function () {
+			//alert("hello");
+
+
+
+			electricityModal.show();
+
+
+
+
+
+
+		});
+
+
+		$("#electricityModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+			let amount = $("#electricityInput").val();
+			let formula = $("#electricityModal .selected").data("formula");
+			let scoreElectricity = 0;
+			scoreElectricity = amount * formula;
+
+			let oldScore = 0;
+
+			if ($('#electricityBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#electricityBtn').attr('data-old');
+
+			}
+
+
+			score += scoreElectricity;
+
+			score -= oldScore;
+
+
+
+			$("#score").html(score.toFixed(2));
+
+
+			electricityModal.hide();
+
+			$('#electricityBtn').attr('data-old', scoreElectricity);
+
+
+			if (scoreElectricity < 15000) {
+
+				$('#electricity-card-score').parent().removeClass("red");
+				$('#electricity-card-score').parent().removeClass("amber");
+
+				$('#electricity-card-score').parent().addClass("green");
+
+
+				$('#electricity-card-score').html(scoreElectricity.toFixed(2));
+			}
+
+
+			if (scoreElectricity >= 15000 && scoreElectricity < 24000) {
+
+
+				$('#electricity-card-score').parent().removeClass("red");
+				$('#electricity-card-score').parent().removeClass("green");
+
+				$('#electricity-card-score').parent().addClass("amber");
+				$('#electricity-card-score').html(scoreElectricity.toFixed(2));
+			}
+
+			if (scoreElectricity >= 24000) {
+
+				$('#electricity-card-score').parent().removeClass("green");
+				$('#electricity-card-score').parent().removeClass("amber");
+
+				$('#electricity-card-score').parent().addClass("red");
+				$('#electricity-card-score').html(scoreElectricity.toFixed(2));
+
+			}
+
+			$("#electricityBtn").addClass("selectedType");
+
+
+		});
+
+
+
+
+
+
+		var gasModal = new bootstrap.Modal(document.getElementById('gasModal'), {});
+
+		$("#gasBtn").click(function () {
+			//alert("hello");
+
+
+			gasModal.show();
+
+
+
+
+		});
+
+
+		$("#gasModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+			let amount = $("#gasInput").val();
+			let formula = $("#gasModal .selected").data("formula");
+
+			let scoreGas = 0;
+			scoreGas = amount * formula;
+
+			let oldScore = 0;
+
+			if ($('#gasBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#gasBtn').attr('data-old');
+
+			}
+
+
+			score += scoreGas;
+
+			score -= oldScore;
+
+
+
+			$("#score").html(score.toFixed(2));
+
+
+			gasModal.hide();
+
+			$('#gasBtn').attr('data-old', scoreGas);
+
+
+			if (scoreGas < 15000) {
+
+				$('#gas-card-score').parent().removeClass("red");
+				$('#gas-card-score').parent().removeClass("amber");
+
+				$('#gas-card-score').parent().addClass("green");
+
+
+				$('#gas-card-score').html(scoreGas.toFixed(2));
+			}
+
+
+			if (scoreGas >= 15000 && scoreGas < 25000) {
+
+
+				$('#gas-card-score').parent().removeClass("red");
+				$('#gas-card-score').parent().removeClass("green");
+
+				$('#gas-card-score').parent().addClass("amber");
+				$('#gas-card-score').html(scoreGas.toFixed(2));
+			}
+
+			if (scoreGas >= 25000) {
+
+				$('#gas-card-score').parent().removeClass("green");
+				$('#gas-card-score').parent().removeClass("amber");
+
+				$('#gas-card-score').parent().addClass("red");
+				$('#gas-card-score').html(scoreGas.toFixed(2));
+
+			}
+
+			$("#gasBtn").addClass("selectedType");
+
+		});
+
+
+		var waterModal = new bootstrap.Modal(document.getElementById('waterModal'), {});
+
+
+		$("#waterBtn").click(function () {
+			//alert("hello");
+
+
+			waterModal.show();
+
+
+
+
+
+
+		});
+
+		$("#waterModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+			let amount = $("#waterInput").val();
+			let formula = $("#waterModal .selected").data("formula");
+
+			let scoreWater = 0;
+			scoreWater = amount * formula;
+
+			let oldScore = 0;
+
+			if ($('#waterBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#waterBtn').attr('data-old');
+
+			}
+
+
+			score += scoreWater;
+
+			score -= oldScore;
+
+
+
+			$("#score").html(score.toFixed(2));
+
+
+			waterModal.hide();
+
+			$('#waterBtn').attr('data-old', scoreWater);
+
+
+
+			if (scoreWater < 30) {
+
+				$('#water-card-score').parent().removeClass("red");
+				$('#water-card-score').parent().removeClass("amber");
+
+				$('#water-card-score').parent().addClass("green");
+
+
+				$('#water-card-score').html(scoreWater.toFixed(2));
+			}
+
+
+			if (scoreWater >= 30 && scoreWater < 100) {
+
+
+				$('#water-card-score').parent().removeClass("red");
+				$('#water-card-score').parent().removeClass("green");
+
+				$('#water-card-score').parent().addClass("amber");
+				$('#water-card-score').html(scoreWater.toFixed(2));
+			}
+
+			if (scoreWater >= 100) {
+
+				$('#water-card-score').parent().removeClass("green");
+				$('#water-card-score').parent().removeClass("amber");
+
+				$('#water-card-score').parent().addClass("red");
+				$('#water-card-score').html(scoreWater.toFixed(2));
+
+			}
+
+			$("#waterBtn").addClass("selectedType");
+
+		});
+
+
+		var appliancesModal = new bootstrap.Modal(document.getElementById('appliancesModal'), {});
+
+
+		$("#appliancesBtn").click(function () {
+			//alert("hello");
+
+
+			appliancesModal.show();
+
+
+
+
+
+		});
+
+
+		$("#appliancesModal .result-btn").click(function () {
+
+
+
+			//alert($("input[name=laptops]").val());
+			//$(".top-heading").hide();
+
+			let laps = $("input[name=laptops]").val() * 422.5;
+
+			let smarts = $("input[name=smartphones]").val() * 0.85;
+			let mons = $("input[name=monitors]").val() * 233;
+
+			let scoreAppliances = laps + smarts + mons;
+
+			// alert(laps+"br "+smarts+"br "+mons);
+			// alert(sum);
+			let oldScore = 0;
+
+			if ($('#appliancesBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#appliancesBtn').attr('data-old');
+
+			}
+
+
+			score += scoreAppliances;
+
+			score -= oldScore;
+
+
+
+			$("#score").html(score.toFixed(2));
+
+
+			appliancesModal.hide();
+
+			$('#appliancesBtn').attr('data-old', scoreAppliances);
+
+			$('#appliances-card-score').html(scoreAppliances.toFixed(2));
+
+			$("#appliancesBtn").addClass("selectedType");
+
+		});
+
+
+
+		var devicesModal = new bootstrap.Modal(document.getElementById('devicesModal'), {});
+
+
+		$("#devicesBtn").click(function () {
+			//alert("hello");
+
+
+
+			devicesModal.show();
+
+
+
+
+
+		});
+
+
+		$("#devicesModal .result-btn").click(function () {
+			// //$(".top-heading").hide();
+
+			// let amount = $("#devicesInput").val();
+			// // var formula=$("#m-cstm-modal .selected").data("formula");
+
+			// let formula = 88.4;
+
+			// let scoreDevices = 0;
+			// scoreDevices = amount * formula;
+
+			// let oldScore = 0;
+
+			// if ($('#devicesBtn').attr('data-old') !== undefined) {
+
+			// 	oldScore = $('#devicesBtn').attr('data-old');
+
+			// }
+
+
+			// score += scoreDevices;
+
+			// score -= oldScore;
+
+
+
+			// $("#score").html(score.toFixed(2));
+
+
+			// devicesModal.hide();
+
+			// $('#devicesBtn').attr('data-old', scoreDevices);
+
+
+			// if (scoreDevices < 100) {
+
+
+			// 	$('#devices-card-score').parent().removeClass("amber");
+			// 	$('#devices-card-score').parent().removeClass("red");
+
+			// 	$('#devices-card-score').parent().addClass("green");
+			// 	$('#devices-card-score').html(scoreDevices.toFixed(2));
+			// }
+
+
+			// if (scoreDevices >= 100 && scoreDevices < 1000) {
+			// 	$('#devices-card-score').parent().removeClass("red");
+			// 	$('#devices-card-score').parent().removeClass("green");
+			// 	$('#devices-card-score').parent().addClass("amber");
+			// 	$('#devices-card-score').html(scoreDevices.toFixed(2));
+			// }
+
+			// if (scoreDevices >= 1000) {
+			// 	$('#devices-card-score').parent().removeClass("amber");
+			// 	$('#devices-card-score').parent().removeClass("green");
+			// 	$('#devices-card-score').parent().addClass("red");
+			// 	$('#devices-card-score').html(scoreDevices.toFixed(2));
+
+			// }
+
+			// $("#devicesBtn").addClass("selectedType");
+
+			//alert($("input[name=laptops]").val());
+			//$(".top-heading").hide();
+
+			let laps = $("input[name=laptopsD]").val() * 88.4;
+
+			let smarts = $("input[name=smartphonesD]").val() * 90;
+			let mons = $("input[name=monitorsD]").val() * 26;
+
+			let scoreAppliances = laps + smarts + mons;
+
+			// alert(laps+"br "+smarts+"br "+mons);
+			// alert(sum);
+			let oldScore = 0;
+
+			if ($('#devicesBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#devicesBtn').attr('data-old');
+
+			}
+
+
+			score += scoreAppliances;
+
+			score -= oldScore;
+
+
+
+			$("#score").html(score.toFixed(2));
+
+
+			devicesModal.hide();
+
+			$('#devicesBtn').attr('data-old', scoreAppliances);
+
+			$('#devices-card-score').html(scoreAppliances.toFixed(2));
+
+			$("#devicesBtn").addClass("selectedType");
+
+		});
+
+
+		var adModal = new bootstrap.Modal(document.getElementById('adModal'), {});
+
+
+		$("#adBtn").click(function () {
+			//alert("hello");
+
+
+			adModal.show();
+
+
+
+
+
+
+		});
+
+
+
+		$("#adModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+			let amount = $("#adInput").val();
+			// var formula=$("#m-cstm-modal .selected").data("formula");
+
+			let formula = 5400;
+
+			let scoreAd = 0;
+			scoreAd = amount * formula;
+
+			let oldScore = 0;
+
+			if ($('#adBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#adBtn').attr('data-old');
+
+			}
+
+
+			score += scoreAd;
+
+			score -= oldScore;
+
+
+
+			$("#score").html(score.toFixed(2));
+
+
+			adModal.hide();
+
+			$('#adBtn').attr('data-old', scoreAd);
+
+
+
+			if (scoreAd < 10000) {
+
+				$('#ad-card-score').parent().removeClass("amber");
+				$('#ad-card-score').parent().removeClass("red");
+
+				$('#ad-card-score').parent().addClass("green");
+				$('#ad-card-score').html(scoreAd.toFixed(2));
+			}
+
+
+			if (scoreAd >= 10000 && scoreAd < 20000) {
+
+
+				$('#ad-card-score').parent().removeClass("red");
+				$('#ad-card-score').parent().removeClass("green");
+
+				$('#ad-card-score').parent().addClass("amber");
+				$('#ad-card-score').html(scoreAd.toFixed(2));
+			}
+
+			if (scoreAd >= 20000) {
+				$('#ad-card-score').parent().removeClass("amber");
+				$('#ad-card-score').parent().removeClass("green");
+				$('#ad-card-score').parent().addClass("red");
+				$('#ad-card-score').html(scoreAd.toFixed(2));
+
+			}
+
+			$("#adBtn").addClass("selectedType");
+
+		});
+
+
+		var phyComModal = new bootstrap.Modal(document.getElementById('phyComModal'), {});
+
+
+		$("#phyComBtn").click(function () {
+			//alert("hello");
+
+
+			phyComModal.show();
+
+
+
+
+
+		});
+
+
+
+
+		$("#phyComModal .result-btn").click(function () {
+			//$(".top-heading").hide();
+
+			let amount = $("#phyComInput").val();
+			// var formula=$("#m-cstm-modal .selected").data("formula");
+
+			let formula = 88.4;
+
+
+			let scorePhyCom = 0;
+			scorePhyCom = amount * formula;
+
+			let oldScore = 0;
+
+			if ($('#phyComBtn').attr('data-old') !== undefined) {
+
+				oldScore = $('#phyComBtn').attr('data-old');
+
+			}
+
+
+			score += scorePhyCom;
+
+			score -= oldScore;
+
+
+
+			$("#score").html(score.toFixed(2));
+
+
+			phyComModal.hide();
+
+			$('#phyComBtn').attr('data-old', scorePhyCom);
+
+
+			if (scorePhyCom < 50) {
+
+				$('#phyCom-card-score').parent().removeClass("red");
+				$('#phyCom-card-score').parent().removeClass("amber");
+
+				$('#phyCom-card-score').parent().addClass("green");
+				$('#phyCom-card-score').html(scorePhyCom.toFixed(2));
+			}
+
+
+			if (scorePhyCom >= 50 && scorePhyCom < 100) {
+
+				$('#phyCom-card-score').parent().removeClass("red");
+				$('#phyCom-card-score').parent().removeClass("green");
+
+				$('#phyCom-card-score').parent().addClass("amber");
+				$('#phyCom-card-score').html(scorePhyCom.toFixed(2));
+			}
+
+			if (scorePhyCom >= 100) {
+
+				$('#phyCom-card-score').parent().removeClass("amber");
+				$('#phyCom-card-score').parent().removeClass("green");
+
+				$('#phyCom-card-score').parent().addClass("red");
+				$('#phyCom-card-score').html(scorePhyCom.toFixed(2));
+
+			}
+
+			$("#phyComBtn").addClass("selectedType");
+		});
+
+
+		$("#m-cstm-modal>button").click(function () {
+
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass("selected");
+			//alert($(this).data("val"));
+		});
+
+
+
+		// $("#options-view-button").click(function(){
+
+		// 	$("#options").show();
+		// 	//$("#options .option").show();
+		// });
+
+		// $("#select-button").click(function(){
+
+		// 	$("#options").show();
+		// 	//$("#options .option").show();
+		// });
+
+		// $("#options .option").click(function(){
+
+		// 	$("#options").hide();
+		// });
+
+
+		var cHtml = $('.country-box').html();
+
+		$("#addMoreCountry").click(function () {
+
+			cc++;
+
+
+			// alert(cHtml);
+
+			// alert($('#country').val());
+
+			// var mhtml="<Select id='country"+cc+"' class='form-select'>" +cHtml+"</select>";
+			// alert(mhtml);
+			var countryHtml = "<div id= 'country" + cc + "'>" + cHtml + "</div>";
+
+			$('.anotherCountry').append(countryHtml);
+
+		});
+
+
+
+
+		var mHtml = $('.material-box').html();
+
+		$("#addMoreMaterial").click(function () {
+
+			mc++;
+
+
+			// alert(cHtml);
+
+			// alert($('#country').val());
+
+			// var mhtml="<Select id='country"+cc+"' class='form-select'>" +cHtml+"</select>";
+			// alert(mhtml);
+			var materialHtml = "<div id='material" + mc + "'>" + mHtml + "</div>";
+
+			$('.anotherMaterial').append(materialHtml);
+
+		});
+
+
+
+
+
+		var crHtml = $('.car-box').html();
+
+		$("#addMoreCar").click(function () {
+
+			crc++;
+
+
+			// alert(cHtml);
+
+			// alert($('#country').val());
+
+			// var mhtml="<Select id='country"+cc+"' class='form-select'>" +cHtml+"</select>";
+			// alert(mhtml);
+			var carHtml = "<div id= 'car" + crc + "'>" + crHtml + "</div>";
+			//$("#scripts").append();
+
+
+
+			//var scriptC="<script>alert('hi');";
+			// var scriptC="$("'#car"+crc+" button'").click(function(){";
+
+
+			// scriptC+="$("'#car"+crc+" button'").removeClass('selected')";
+			// scriptC+="$(this).addClass("selected")})";
+
+
+
+			//$("#scripts").append(scriptC);
+
+			$('#anotherCar').append(carHtml);
+
+		});
+
+
+
+
+
+
+		// for(var v=1;v<15;v++){
+
+		// $("'#car"+v+" button'").click(function(){
+
+		// 	$("'#car"+v+" button'").removeClass('selected');
+		// 	$(this).addClass('selected');
+		// }
+
+		// 	);
+
+		// }
+
+
+		// $(".car-box-inner button").click(function(){
+
+
+		// 	$(this).addClass('selected');
+
+
+		// })
+
+		$(document).on('click', ".car-box-inner .unitBtn", function () {
+
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass('selected');
+			// e.preventDefault();
+		});
+
+
+		$(document).on('click', ".top-btns>a", function () {
+
+			// $(this).parent().children().removeClass("cstm-active");
+
+
+			//alert($(this).html());
+
+			// if ($(this).html() == "Our Recommendations") {
+
+			// 	$("#footprints").hide();
+			// 	$("#recommendations2").show();
+
+			// 	$(this).addClass('cstm-recommendations');
+			// 	$(this).parent().children().removeClass("cstm-footprint");
+			// 	//alert("working");
+
+			// }
+
+			if ($(this).html() == "Your footprint") {
+				$("#recommendations2").hide();
+				$("#footprints").show();
+				$(this).addClass('cstm-footprint');
+				$(this).parent().children().removeClass("cstm-recommendations");
+
+				//alert("working");
+
+			}
+			// e.preventDefault();
+
+		});
+
+
+
+
+	</script>
+	<script>
+		var x, i, j, l, ll, selElmnt, a, b, c;
+		/*look for any elements with the class "custom-select":*/
+		x = document.getElementsByClassName("custom-select");
+		l = x.length;
+		for (i = 0; i < l; i++) {
+			selElmnt = x[i].getElementsByTagName("select")[0];
+			ll = selElmnt.length;
+			/*for each element, create a new DIV that will act as the selected item:*/
+			a = document.createElement("DIV");
+			a.setAttribute("class", "select-selected");
+			a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+			x[i].appendChild(a);
+			/*for each element, create a new DIV that will contain the option list:*/
+			b = document.createElement("DIV");
+			b.setAttribute("class", "select-items select-hide");
+			for (j = 1; j < ll; j++) {
+				/*for each option in the original select element,
+				create a new DIV that will act as an option item:*/
+				c = document.createElement("DIV");
+				c.innerHTML = selElmnt.options[j].innerHTML;
+				c.addEventListener("click", function (e) {
+					/*when an item is clicked, update the original select box,
+					and the selected item:*/
+					var y, i, k, s, h, sl, yl;
+					s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+					sl = s.length;
+					h = this.parentNode.previousSibling;
+					for (i = 0; i < sl; i++) {
+						if (s.options[i].innerHTML == this.innerHTML) {
+							s.selectedIndex = i;
+							h.innerHTML = this.innerHTML;
+							y = this.parentNode.getElementsByClassName("same-as-selected");
+							yl = y.length;
+							for (k = 0; k < yl; k++) {
+								y[k].removeAttribute("class");
+							}
+							this.setAttribute("class", "same-as-selected");
+							break;
+						}
+					}
+					h.click();
+				});
+				b.appendChild(c);
+			}
+			x[i].appendChild(b);
+			a.addEventListener("click", function (e) {
+				/*when the select box is clicked, close any other select boxes,
+				and open/close the current select box:*/
+				e.stopPropagation();
+				closeAllSelect(this);
+				this.nextSibling.classList.toggle("select-hide");
+				this.classList.toggle("select-arrow-active");
+			});
+		}
+		function closeAllSelect(elmnt) {
+			/*a function that will close all select boxes in the document,
+			except the current select box:*/
+			var x, y, i, xl, yl, arrNo = [];
+			x = document.getElementsByClassName("select-items");
+			y = document.getElementsByClassName("select-selected");
+			xl = x.length;
+			yl = y.length;
+			for (i = 0; i < yl; i++) {
+				if (elmnt == y[i]) {
+					arrNo.push(i)
+				} else {
+					y[i].classList.remove("select-arrow-active");
+				}
+			}
+			for (i = 0; i < xl; i++) {
+				if (arrNo.indexOf(i)) {
+					x[i].classList.add("select-hide");
+				}
+			}
+		}
+		/*if the user clicks anywhere outside the select box,
+		then close all select boxes:*/
+		document.addEventListener("click", closeAllSelect);
+
+	</script>
+	<!-- script changes by hamza_teamalif -->
+	<script>
+		let instructionsModal = new bootstrap.Modal(document.getElementById('instructionsModal'), {});;
+		instructionsModal.show()
+		var websiteModal = new bootstrap.Modal(document.getElementById('websiteModal'), {});
+		$("#websiteBtn").click(function () {
+			websiteModal.show();
+		});
+		var ww = 1;
+		var websiteHtml = $('.website-box').html();
+		$("#addMoreWebsite").click(function () {
+
+			ww++;
+
+			var webHtml = "<div id= 'website" + ww + "'>" + websiteHtml + "</div>";
+
+			$('.anotherWebsite').append(webHtml);
+
+		});
+		$("#websiteModal .result-btn").click(function () {
+			let allWebsiteBoxes = document.querySelectorAll(".websiteBox");
+			let totalNumberOfVisitors = 0;
+			allWebsiteBoxes.forEach((el) => {
+				let visitors = Number(el.value);
+				totalNumberOfVisitors += visitors;
+			})
+			let totalScoreWebsite = totalNumberOfVisitors * 0.0005;
+			let oldScore = 0;
+			if ($('#websiteBtn').attr('data-old') !== undefined) {
+				oldScore = $('#websiteBtn').attr('data-old');
+			}
+			score += totalScoreWebsite;
+			score -= oldScore;
+			$("#score").html(score.toFixed(2));
+			websiteModal.hide();
+			$('#websiteBtn').attr('data-old', totalScoreWebsite);
+			$("#websiteBtn").addClass("selectedType");
+			$('#website-card-score').html(totalScoreWebsite.toFixed(2));
+		});
+		var smmModal = new bootstrap.Modal(document.getElementById('smmModal'), {});
+		$("#smmBtn").click(function () {
+			smmModal.show();
+		});
+		$("#smmModal .result-btn").click(function () {
+			let visitors_LinkedIn = Number(document.querySelector("#smmLinked").value);
+			let visitors_Facebook = Number(document.querySelector("#smmFacebook").value);
+			let visitors_Twitter = Number(document.querySelector("#smmTwitter").value);
+			let visitors_Instagram = Number(document.querySelector("#smmInstagram").value);
+			let visitors_YouTube = Number(document.querySelector("#smmYouTube").value);
+			let total_LinkedIn = 0;
+			let total_Facebook = 0;
+			let total_Twitter = 0;
+			let total_Instagram = 0;
+			let total_YouTube = 0;
+
+			if (visitors_LinkedIn > 0) {
+				total_LinkedIn = visitors_LinkedIn * 0.00071;
+			}
+			if (visitors_LinkedIn > 0) {
+				total_Facebook = visitors_Facebook * 0.00079;
+			}
+			if (visitors_LinkedIn > 0) {
+				total_Twitter = visitors_Twitter * 0.0006;
+			}
+			if (visitors_LinkedIn > 0) {
+				total_Instagram = visitors_Instagram * 0.00105;
+			}
+			if (visitors_LinkedIn > 0) {
+				total_YouTube = visitors_YouTube * 0.00046;
+			}
+			let totalScoreSmm = total_LinkedIn + total_Facebook + total_Twitter + total_Instagram + total_YouTube;
+			let oldScore = 0;
+			if ($('#smmBtn').attr('data-old') !== undefined) {
+				oldScore = $('#smmBtn').attr('data-old');
+			}
+			score += totalScoreSmm;
+			score -= oldScore;
+			$("#score").html(score.toFixed(2));
+			smmModal.hide();
+			$('#smmBtn').attr('data-old', totalScoreSmm);
+			$("#smmBtn").addClass("selectedType");
+			$('#smm-card-score').html(totalScoreSmm.toFixed(2));
+		});
+		var eventsModal = new bootstrap.Modal(document.getElementById('eventsModal'), {});
+		$("#eventsBtn").click(function () {
+			eventsModal.show();
+		});
+		$("#eventsModal .result-btn").click(function () {
+
+			let numOfEvents = Number(document.querySelector("#numOfEvents").value);
+			let numOfAttendees = Number(document.querySelector("#numOfAttendees").value);
+			let totalScoreEvents = 0;
+			if (numOfAttendees > 0 && numOfEvents > 0) {
+				totalScoreEvents = numOfAttendees * numOfEvents * 170;
+			}
+			let oldScore = 0;
+			if ($('#eventsBtn').attr('data-old') !== undefined) {
+				oldScore = $('#eventsBtn').attr('data-old');
+			}
+			score += totalScoreEvents;
+			score -= oldScore;
+			$("#score").html(score.toFixed(2));
+			eventsModal.hide();
+			$('#eventsBtn').attr('data-old', totalScoreEvents);
+			$("#eventsBtn").addClass("selectedType");
+			$('#events-card-score').html(totalScoreEvents.toFixed(2));
+		});
+		var dcModal = new bootstrap.Modal(document.getElementById('dcModal'), {});
+		$("#dcBtn").click(function () {
+			dcModal.show();
+		});
+		$("#dcModal .result-btn").click(function () {
+
+			let numOfEmails = Number(document.querySelector("#numOfEmails").value);
+			let numOfSearches = Number(document.querySelector("#numOfSearches").value);
+			let totalScoreDC = 0;
+
+			if (numOfEmails > 0) {
+				totalScoreDC += numOfEmails * 0.050;
+			}
+			if (numOfSearches > 0) {
+				totalScoreDC += numOfSearches * 0.005;
+			}
+			let oldScore = 0;
+			if ($('#dcBtn').attr('data-old') !== undefined) {
+				oldScore = $('#dcBtn').attr('data-old');
+			}
+			score += totalScoreDC;
+			score -= oldScore;
+			$("#score").html(score.toFixed(2));
+			dcModal.hide();
+			$('#dcBtn').attr('data-old', totalScoreDC);
+			$("#dcBtn").addClass("selectedType");
+			$('#dc-card-score').html(totalScoreDC.toFixed(2));
+		});
+		var daModal = new bootstrap.Modal(document.getElementById('daModal'), {});
+		$("#daBtn").click(function () {
+			daModal.show();
+		});
+		$("#daModal .result-btn").click(function () {
+			let numOfLargeCampaigns = Number(document.querySelector("#numOfCampiagnsLarge").value);
+			let numOfMediumCampaigns = Number(document.querySelector("#numOfCampiagnsMedium").value);
+			let numOfSmallCampaigns = Number(document.querySelector("#numOfCampiagnsSmall").value);
+			let totalScoreDA = 0;
+
+			if (numOfLargeCampaigns > 0) {
+				totalScoreDA += numOfLargeCampaigns * 68, 583.375;
+			}
+			if (numOfMediumCampaigns > 0) {
+				totalScoreDA += numOfMediumCampaigns * 20, 575.0125;
+			}
+			if (numOfSmallCampaigns > 0) {
+				totalScoreDA += numOfSmallCampaigns * 3, 429.16875;
+			}
+			let oldScore = 0;
+			if ($('#daBtn').attr('data-old') !== undefined) {
+				oldScore = $('#daBtn').attr('data-old');
+			}
+			score += totalScoreDA;
+			score -= oldScore;
+			$("#score").html(score.toFixed(2));
+			daModal.hide();
+			$('#daBtn').attr('data-old', totalScoreDA);
+			$("#daBtn").addClass("selectedType");
+			$('#da-card-score').html(totalScoreDA.toFixed(2));
+		});
+		var websiteCardModal = new bootstrap.Modal(document.getElementById('websiteCardModal'), {});
+		$("#websiteCard").click(function () {
+			websiteCardModal.show();
+		});
+		var smmCardModal = new bootstrap.Modal(document.getElementById('smmCardModal'), {});
+		$("#smmCard").click(function () {
+			smmCardModal.show();
+		});
+		var eventsCardModal = new bootstrap.Modal(document.getElementById('eventsCardModal'), {});
+		$("#eventsCard").click(function () {
+			eventsCardModal.show();
+		});
+		var dcCardModal = new bootstrap.Modal(document.getElementById('dcCardModal'), {});
+		$("#dcCard").click(function () {
+			dcCardModal.show();
+		});
+		var daCardModal = new bootstrap.Modal(document.getElementById('daCardModal'), {});
+		$("#daCard").click(function () {
+			daCardModal.show();
+		});
+	</script>
+</body>
+
+</html>
